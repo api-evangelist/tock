@@ -1,0 +1,29 @@
+aid: tock
+url: https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/apis.yml
+name: Tock
+x-type: company
+description: >-
+  Tock (an American Express company) is a reservation and ordering platform supporting tickets, pre-paid reservations, takeout, and events.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Hospitality
+  - Restaurant
+  - Reservations
+  - Pre-paid
+  - American Express
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://www.exploretock.com/
+  - type: Plans
+    url: plans/tock-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/tock-rate-limits.yml
+  - type: FinOps
+    url: finops/tock-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
