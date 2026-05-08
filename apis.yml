@@ -2,28 +2,42 @@ aid: tock
 url: https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/apis.yml
 name: Tock
 x-type: company
-description: >-
-  Tock (an American Express company) is a reservation and ordering platform supporting tickets, pre-paid reservations, takeout, and events.
+description: Tock is a reservation, takeout, delivery, and events management platform for restaurants,
+  owned by Squarespace. Tock provides partner-only APIs to approved POS, CRM, marketing, and ticketing
+  integrations; no public self-serve developer portal exists.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Hospitality
-  - Restaurant
-  - Reservations
-  - Pre-paid
-  - American Express
+- Hospitality
+- Reservations
+- Restaurants
+- Events
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+- aid: tock:partner-api
+  name: Tock Partner API
+  description: Partner-only REST API for reservations, ticketed experiences, takeout/delivery, and customer
+    data. Access is granted through Tock's partnerships team under contract.
+  humanURL: https://www.exploretock.com/partners
+  tags:
+  - REST
+  - Partner
+  - Reservations
+  properties:
+  - type: Partnerships
+    url: https://www.exploretock.com/partners
 common:
-  - type: Website
-    url: https://www.exploretock.com/
-  - type: Plans
-    url: plans/tock-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/tock-rate-limits.yml
-  - type: FinOps
-    url: finops/tock-finops.yml
+- type: Website
+  url: https://www.exploretock.com/
+- type: Developer
+  url: https://www.exploretock.com/partners
+- type: Plans
+  url: plans/tock-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/tock-rate-limits.yml
+- type: FinOps
+  url: finops/tock-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

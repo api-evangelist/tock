@@ -8,34 +8,63 @@ modified: '2026-05-08'
 reconciled: false
 tags:
 - Hospitality
-- Restaurant
 - Reservations
-- Pre-paid
-- American Express
+- Restaurants
+- Events
 - Plans
-description: Placeholder plans/pricing artifact for Tock. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+description: Tock offers tiered restaurant SaaS plans (Tock Plus, Tock Pro, etc.) plus per-ticket fees.
+  Public pricing pages have advertised tiers from $199/month upward historically; confirm with sales.
+notes: Partner API access is contractual.
 sources:
 - https://www.exploretock.com/
+- https://www.exploretock.com/partners
 plans:
-- id: tock-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: tock-restaurant-tiers
+  name: Tock Restaurant Tiers
+  type: paid
+  description: Tiered monthly SaaS for restaurants with optional per-ticket and reservation fees.
   entries:
-  - label: API Access
-    name: api_access
-    type: flat
-    metric: varies
+  - label: Monthly Subscription
+    name: monthly_saas
+    type: tiered
+    metric: monthly
+    limit: -1
+    timeFrame: monthly
+    geo: global
+    unit: 1
+    price: see exploretock.com
+    userMultiplied: false
+  - label: Per Ticket Fee
+    name: per_ticket
+    type: per-unit
+    metric: ticket
     limit: -1
     timeFrame: usage
     geo: global
     unit: 1
-    price: see https://www.exploretock.com/
+    price: varies
     userMultiplied: false
   elements:
-  - name: Pending Reconciliation
+  - name: Reservations
+  - name: Ticketed Events
+  - name: Takeout / Delivery
+- id: tock-partner-api
+  name: Partner API
+  type: enterprise
+  description: Contractual partner access.
+  entries:
+  - label: Partner Agreement
+    name: partner
+    type: flat
+    metric: agreement
+    limit: -1
+    timeFrame: yearly
+    geo: global
+    unit: 1
+    price: contact partnerships
+    userMultiplied: false
+  elements:
+  - name: Approved Partner Endpoints
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

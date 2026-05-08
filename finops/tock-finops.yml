@@ -8,15 +8,14 @@ modified: '2026-05-08'
 reconciled: false
 tags:
 - Hospitality
-- Restaurant
 - Reservations
-- Pre-paid
-- American Express
+- Restaurants
+- Events
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Tock. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: FOCUS-aligned FinOps profile. Restaurant SaaS + ticket fees.
+notes: Owned by Squarespace; integrations may also surface in Squarespace billing.
 sources:
 - https://www.exploretock.com/
 - https://focus.finops.org/focus-specification/v1-3/
@@ -29,12 +28,12 @@ alignedWith:
 publisherName: Tock
 serviceCategory: Hospitality
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Hybrid
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
-  - Usage
   - Purchase
+  - Usage
   - Adjustment
 focusColumns:
   ServiceName: Tock
@@ -45,13 +44,18 @@ focusColumns:
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: monthly_saas
+  description: Monthly Tock subscription.
+  unit: subscription
   aggregation: sum
   dimensions:
-  - account
-  - resource
+  - restaurant
+- name: per_ticket
+  description: Per-ticket fee on ticketed events.
+  unit: ticket
+  aggregation: sum
+  dimensions:
+  - restaurant
 principles:
 - name: Visibility
   description: Pull provider invoices or usage exports until a self-serve usage feed is documented.

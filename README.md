@@ -1,6 +1,6 @@
 # Tock (tock)
 
-Tock (an American Express company) is a reservation and ordering platform supporting tickets, pre-paid reservations, takeout, and events.
+Tock is a reservation, takeout, delivery, and events management platform for restaurants, owned by Squarespace. Tock provides partner-only APIs to approved POS, CRM, marketing, and ticketing integrations; no public self-serve developer portal exists.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/apis.yml)
 
@@ -8,7 +8,10 @@ Tock (an American Express company) is a reservation and ordering platform suppor
 - **x-type:** company
 
 ## Tags
- - Hospitality, Restaurant, Reservations, Pre-paid, American Express
+- Hospitality, Reservations, Restaurants, Events
+
+## APIs
+- **Tock Partner API** — partner-only REST API; contact exploretock.com/partners for access.
 
 ## Timestamps
 - **Created:** 2026-05-08
@@ -16,9 +19,10 @@ Tock (an American Express company) is a reservation and ordering platform suppor
 
 ## Common Properties
 - [Website](https://www.exploretock.com/)
-- [Plans](plans/tock-plans-pricing.yml) — placeholder, pipeline reconciles later
-- [RateLimits](rate-limits/tock-rate-limits.yml) — placeholder
-- [FinOps](finops/tock-finops.yml) — FOCUS-aligned placeholder
+- [Developer Portal](https://www.exploretock.com/partners)
+- [Plans](plans/tock-plans-pricing.yml) — tiered restaurant SaaS + per-ticket; partner API contractual (reconciled: false)
+- [RateLimits](rate-limits/tock-rate-limits.yml) — per partner agreement (reconciled: false)
+- [FinOps](finops/tock-finops.yml) — FOCUS-aligned hybrid (reconciled: false)
 
 ## Maintainers
 **FN:** Kin Lane
