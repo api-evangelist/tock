@@ -1,7 +1,7 @@
 aid: tock
 url: https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/apis.yml
 name: Tock
-x-type: company
+kind: company
 description: Tock is a reservation, takeout, delivery, and events management platform for restaurants,
   owned by Squarespace. Tock provides partner-only APIs to approved POS, CRM, marketing, and ticketing
   integrations; no public self-serve developer portal exists.
