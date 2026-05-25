@@ -4,7 +4,7 @@ schema: https://www.finops.org/framework/
 provider: Tock
 providerId: tock
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-05-25'
 reconciled: false
 tags:
 - Hospitality
@@ -15,7 +15,8 @@ tags:
 - Cost Management
 - FOCUS
 description: FOCUS-aligned FinOps profile. Restaurant SaaS + ticket fees.
-notes: Owned by Squarespace; integrations may also surface in Squarespace billing.
+notes: Owned by American Express since June 2024 (acquired from Squarespace); legacy billing artifacts
+  for long-tenured customers may still surface via Squarespace channels.
 sources:
 - https://www.exploretock.com/
 - https://focus.finops.org/focus-specification/v1-3/

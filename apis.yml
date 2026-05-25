@@ -1,39 +1,186 @@
 aid: tock
-url: https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/apis.yml
 name: Tock
-kind: company
-description: Tock is a reservation, takeout, delivery, and events management platform for restaurants,
-  owned by Squarespace. Tock provides partner-only APIs to approved POS, CRM, marketing, and ticketing
-  integrations; no public self-serve developer portal exists.
+description: >-
+  Tock is a Chicago-founded reservation, ticketed events, takeout, and
+  delivery management platform for restaurants, wineries, and hospitality
+  venues. Founded in 2014 by Nick Kokonas, Brian Fitzpatrick, and Grant
+  Achatz to support prepaid and ticketed dining (originated at Alinea
+  Group), Tock pioneered the prepaid reservation model and expanded into
+  takeout, wine delivery, and experience ticketing through the pandemic.
+  Squarespace acquired Tock for approximately $400 million in 2021,
+  then sold it to American Express in June 2024 as part of Amex's
+  strategy to deepen its dining and premium-experience footprint. Tock
+  is operated as an Amex-owned property today and continues to serve
+  restaurants globally through exploretock.com. Tock does not publish a
+  self-serve developer portal; integrations with POS, CRM, marketing,
+  loyalty, and ticketing platforms are delivered through a contractual
+  Partner API program managed by Tock's partnerships team.
+type: Index
+position: Provider
+access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/apis.yml
 tags:
   - Hospitality
   - Reservations
   - Restaurants
-  - Events
+  - Wineries
+  - Ticketed Events
+  - Takeout
+  - Delivery
+  - Experiences
+  - Dining
+  - American Express
 created: '2026-05-08'
-modified: '2026-05-08'
-specificationVersion: '0.19'
+modified: '2026-05-25'
+specificationVersion: '0.20'
 apis:
   - aid: tock:partner-api
     name: Tock Partner API
-    description: Partner-only REST API for reservations, ticketed experiences, takeout/delivery, and customer
-      data. Access is granted through Tock's partnerships team under contract.
+    description: >-
+      Contractual REST API offered to approved POS, CRM, marketing,
+      loyalty, ticketing, and accounting partners. The Partner API
+      exposes reservations, ticketed experiences, takeout/delivery
+      orders, guest profiles, and venue configuration; access is
+      granted by Tock's partnerships team under a written agreement.
+      Tock does not publish a self-serve developer portal, OpenAPI
+      definition, or public SDK; documentation and credentials are
+      provided to approved partners directly.
     humanURL: https://www.exploretock.com/partners
     tags:
-    - REST
-    - Partner
-    - Reservations
+      - REST
+      - Partner
+      - Reservations
+      - Ticketed Events
+      - Takeout
+      - Delivery
+      - Guests
     properties:
-    - type: Partnerships
-      url: https://www.exploretock.com/partners
+      - type: Partners
+        url: https://www.exploretock.com/partners
+      - type: Authentication
+        url: https://www.exploretock.com/partners
 common:
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/tock
   - type: Website
     url: https://www.exploretock.com/
-  - type: Developer
+  - type: Partners
     url: https://www.exploretock.com/partners
+  - type: SignUp
+    url: https://www.exploretock.com/business
+  - type: Login
+    url: https://www.exploretock.com/login
+  - type: Customers
+    url: https://www.exploretock.com/restaurants
+  - type: Support
+    url: https://help.exploretock.com/
+  - type: Blog
+    url: https://www.exploretock.com/journal
+  - type: PrivacyPolicy
+    url: https://www.exploretock.com/privacy
+  - type: TermsOfService
+    url: https://www.exploretock.com/terms
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/tock
+  - type: X
+    url: https://twitter.com/exploretock
+  - type: Features
+    data:
+      - name: Reservations
+        description: >-
+          Online booking, waitlist, and prepaid/deposit reservations
+          for restaurants and hospitality venues, originally modeled
+          on Alinea Group's prepaid dining workflow.
+      - name: Ticketed Experiences
+        description: >-
+          Sell tickets for chef's tables, tastings, wine dinners, and
+          one-off events with prepayment, refund rules, and tiered
+          pricing per seating or experience.
+      - name: Takeout and Delivery
+        description: >-
+          Direct online ordering for pickup and delivery, including
+          wine and retail product sales, with venue-controlled menus
+          and fulfillment windows.
+      - name: Marketplace Discovery
+        description: >-
+          Diner-facing exploretock.com marketplace that distributes
+          inventory and ticketed experiences across a global network
+          of restaurants and wineries.
+      - name: Guest CRM
+        description: >-
+          Unified guest profiles capturing reservation history, spend,
+          preferences, allergies, and notes for staff personalization
+          and remarketing.
+      - name: Operations and Floor Management
+        description: >-
+          Table management, host and server tooling, prep sheets, and
+          shift-level reporting for in-venue operations.
+  - type: UseCases
+    data:
+      - name: Fine Dining Reservations
+        description: >-
+          Prepaid and deposit-backed reservations for tasting menus
+          and high-demand seatings, reducing no-shows and stabilizing
+          per-cover revenue.
+      - name: Wine Country and Tasting Rooms
+        description: >-
+          Ticketed tasting flights, tours, and member experiences for
+          wineries and vineyards with capacity and SKU constraints.
+      - name: Chef Events and Pop-Ups
+        description: >-
+          Ticketed dinners, collaborations, and limited-run events
+          where prepayment and assigned seating are essential.
+      - name: Takeout and Wine Delivery
+        description: >-
+          Direct-to-consumer pickup, delivery, and retail wine sales
+          launched and expanded during and after the pandemic.
+      - name: American Express Dining Benefits
+        description: >-
+          Surfacing curated dining and experience inventory to Amex
+          cardmembers as part of Amex's premium-experience portfolio.
+  - type: Integrations
+    data:
+      - name: Point of Sale (POS)
+        description: >-
+          Bi-directional sync with restaurant POS systems for checks,
+          payments, and guest spend; delivered through the contractual
+          Partner API.
+      - name: CRM and Marketing
+        description: >-
+          Push guest profiles and reservation events into CRM,
+          loyalty, and email/SMS marketing systems via Partner API.
+      - name: Payments
+        description: >-
+          Integrated card capture and prepayment processing for
+          deposits, tickets, and order payments.
+      - name: American Express
+        description: >-
+          Owned by American Express since June 2024; integrated with
+          Amex dining benefits, cardmember experiences, and Resy
+          coordination at the parent level.
+      - name: Squarespace (historical)
+        description: >-
+          Tock was a Squarespace subsidiary from 2021 to mid-2024;
+          some legacy billing and account artifacts may still surface
+          via Squarespace channels for long-tenured customers.
+  - type: Solutions
+    data:
+      - name: Restaurants
+        description: >-
+          Reservations, ticketing, takeout, delivery, and guest CRM
+          for independent and group restaurants.
+      - name: Wineries
+        description: >-
+          Tastings, tours, club experiences, and on-site retail
+          tooling for wineries and vineyards.
+      - name: Hotels and Resorts
+        description: >-
+          Dining and experience reservations for on-property
+          restaurants, bars, and signature experiences inside hotels
+          and resorts.
+      - name: Bars and Lounges
+        description: >-
+          Reservations, ticketed experiences, and walk-in waitlist
+          management for high-demand bar and lounge concepts.
   - type: Plans
     url: plans/tock-plans-pricing.yml
   - type: RateLimits
