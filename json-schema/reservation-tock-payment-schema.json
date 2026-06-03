@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-tock-payment-schema.json",
+  "title": "tockTockPayment",
+  "description": "tockTockPayment schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "int64",
+      "description": "A unique identifier assigned to the payment. Used internally by Tock."
+    },
+    "amount": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The amount of the reservation that was paid using the paymentType."
+    },
+    "payout": {
+      "$ref": "reservation-payout-schema.json",
+      "description": "The Tock-generated payout that includes this payment as a credit to the business bank account. If the business connects to Tock for payment processing using Stripe this field will not be present."
+    },
+    "paymentType": {
+      "$ref": "reservation-payment-type-schema.json",
+      "description": "The form of payment used for this portion of total price on the reservation."
+    },
+    "processorId": {
+      "type": "string",
+      "description": "A unique identifier assigned to the payment by the payment processor indicated by the paymentType."
+    },
+    "processorFeeCents": {
+      "type": "integer",
+      "format": "int64",
+      "description": "The amount the payment processor kept from the payment to perform the service."
+    },
+    "tockFeeCents": {
+      "type": "integer",
+      "format": "int64",
+      "description": "The fee that Tock kept from the payment to perform the service."
+    }
+  }
+}

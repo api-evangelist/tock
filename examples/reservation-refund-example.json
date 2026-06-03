@@ -1,0 +1,13 @@
+{
+  "id": "591874",
+  "amount": 400,
+  "isDispute": false,
+  "status": {},
+  "payout": {
+    "id": "302750",
+    "arrivalDate": "example"
+  },
+  "processorId": "798613",
+  "processorFeeRefundedCents": 12000,
+  "tockFeeRefundedCents": 5000
+}

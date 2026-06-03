@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-visit-feedback-schema.json",
+  "title": "tockVisitFeedback",
+  "description": "tockVisitFeedback schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A unique identifier for this feedback. Used internally by Tock."
+    },
+    "rating": {
+      "$ref": "reservation-rating-schema.json",
+      "description": "The rating supplied by the guest indicating their opinion about the experience."
+    },
+    "message": {
+      "type": "string",
+      "description": "A custom message included with the feedback from the guest."
+    },
+    "isLocked": {
+      "type": "boolean",
+      "description": "Feedback can be altered until a message is given along with the rating. This indicates whether the feedback has been locked with a message and is unable to be altered again."
+    },
+    "createdAtEpochSec": {
+      "type": "string",
+      "format": "int64",
+      "description": "The timestamp for when the feedback was submitted by the guest, in seconds from the Unix Epoch."
+    },
+    "ratingType": {
+      "$ref": "reservation-rating-type-schema.json",
+      "description": "The rating scale of feedback request"
+    },
+    "ratingScore": {
+      "type": "integer",
+      "format": "int64",
+      "description": "The rating supplied by the guest indicating their opinion about the experience."
+    }
+  }
+}

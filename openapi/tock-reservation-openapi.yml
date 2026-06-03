@@ -1,0 +1,820 @@
+# Converted from Tock's published Swagger 2.0 model spec; schemas are verbatim from
+# https://api.exploretock.com/docs/latest/reservation.swagger.json
+openapi: 3.0.3
+info:
+  title: Tock Reservation Model
+  version: '2.7'
+  description: >-
+    Data model for Tock reservations as published in the Tock API documentation (https://api.exploretock.com/docs/latest/reservation.html).
+    Reservation records are delivered to approved partners through the twice-daily Data Exports API and
+    the real-time Reservation Webhook; this specification documents the canonical reservation object and
+    all of its nested types. Access to the underlying API and webhook requires a Tock API key (request
+    from integrate@tockhq.com) and a Premium or Premium Unlimited plan.
+  contact:
+    name: Tock Engineering
+    email: eng@tockhq.com
+  x-converted-from: swagger-2.0
+  x-source-url: https://api.exploretock.com/docs/latest/reservation.swagger.json
+  x-last-validated: '2026-06-03'
+servers:
+- url: https://api.exploretock.com
+  description: Tock API (partner access; API key required, Premium/Premium Unlimited plan)
+paths: {}
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Tock-issued API key. Request access by emailing integrate@tockhq.com from a Tock Dashboard Account
+        Owner; available on Premium and Premium Unlimited plans.
+  schemas:
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/protobufAny'
+    tockBusiness:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+          description: A unique identifier for the business. Used internally by Tock.
+        name:
+          type: string
+          description: The name given to the business in the Tock Dashboard.
+        domainName:
+          type: string
+          description: >-
+            The unique section of exploretock.com that is devoted to showing inventory and allowing guests
+            to book reservations. The top-level URL will be of the form https://exploretock.com/{domainName}/.
+        locale:
+          type: string
+          description: >-
+            The locale that the business presents in using the ISO-3166 country code and ISO-639 language
+            code (e.g. en-us for US English, es-es for Spain Spanish).
+        currencyCode:
+          type: string
+          description: >-
+            The ISO 4217 three letter currency code that the business presents on exploretock.coms (e.g.
+            "USD" for US Dollar, "GBP" for Great Britain Pound).
+        timeZone:
+          type: string
+          description: >-
+            The time zone in which the business operates in the IANA named format (e.g. "America/Chicago").
+    tockDiscount:
+      type: object
+      properties:
+        description:
+          type: string
+          description: A textual description of the discount.
+        amountCents:
+          type: integer
+          format: int32
+          description: >-
+            The amount of the discount applied in some manner to the total price. This value will always
+            be a positive number.
+        discountType:
+          $ref: '#/components/schemas/tockDiscountDiscountType'
+          description: Where and how the discount is applied to the total price.
+        giftCard:
+          $ref: '#/components/schemas/tockGiftCard'
+          description: >-
+            If a gift card was used to apply the discount to the total price, this field will contain
+            extra information about the gift card used.
+        confirmationNumber:
+          type: string
+          description: >-
+            If a gift card was used to apply the discount to the total price, this field will contain
+            a confirmation number from the gift card provider that can be used to reconcile between Tock
+            and the provider.
+        promoCode:
+          type: string
+          description: >-
+            If the discount is applied through a promotional code, this field will be the short name of
+            promo code as configured in the Tock Dashboard.
+        ticketTypePromoCodeId:
+          type: string
+          format: uint64
+          description: >-
+            If the discount is applied through a promotional code, this field is a unique identifier assigned
+            to promotional code. Used internally by Tock.
+        loyaltyProgram:
+          $ref: '#/components/schemas/tockLoyaltyProgram'
+          description: >-
+            If the discount is for redeeming loyalty rewards program points, this field will contain extra
+            information about the loyalty program used.
+    tockDiscountDiscountType:
+      type: string
+      enum:
+      - CREDIT
+      - SUBTOTAL_COMP
+      - POST_TOTAL_ADMIN_COMP
+      - POST_TOTAL_REFUND
+    tockExperienceVariety:
+      type: string
+      enum:
+      - RESERVATION
+      - PREPAID
+      - DEPOSIT
+      - TABLESIDE
+      - PICKUP
+      - DELIVERY
+      - EVENT
+    tockGetReservationResponse:
+      type: object
+      properties:
+        reservation:
+          $ref: '#/components/schemas/tockReservation'
+    tockGiftCard:
+      type: object
+      properties:
+        giftCardProvider:
+          $ref: '#/components/schemas/tockGiftCardProviderType'
+          description: The provider of the gift card service for the business.
+        externalIdentifier:
+          type: string
+          description: The identifier of the card used for reconciliation with the gift card provider.
+        externalPin:
+          type: string
+          description: If provided, the security pin used to authenticate the owner of the gift card.
+    tockGiftCardProviderType:
+      type: string
+      enum:
+      - TCC
+      - STUB
+      - PAYTRONIX
+    tockKeyValue:
+      type: object
+      properties:
+        attribute:
+          type: string
+          description: The name of the metadata attribute.
+        attributeValue:
+          type: string
+          description: The value of the metadata attribute.
+    tockLoyaltyProgram:
+      type: object
+      properties:
+        providerType:
+          $ref: '#/components/schemas/tockLoyaltyProgramProviderType'
+          description: The loyalty program provider used when securing the reservation.
+        accountId:
+          type: string
+          description: >-
+            If known, the account identifier for the owner patron within the loyalty program.
+    tockLoyaltyProgramProviderType:
+      type: string
+      enum:
+      - PAYTRONIX
+      - ANNEXCLOUD
+    tockNote:
+      type: object
+      properties:
+        noteType:
+          $ref: '#/components/schemas/tockNoteNoteType'
+          description: The type of note being described by this object.
+        text:
+          type: string
+          description: The full text of the note.
+    tockNoteNoteType:
+      type: string
+      enum:
+      - BOOKING_GENERAL_NOTE
+      - BOOKING_DIETARY_NOTE
+      - GUEST_PROVIDED_NOTE
+    tockPartyState:
+      type: string
+      enum:
+      - EXPECTED
+      - ARRIVED
+      - SEATED
+      - LEFT
+      - NO_SHOW
+      - CANCELLED
+      - AWAITING_RESPONSE
+      - CONFIRMED_VIA_TEXT
+      - CONFIRMED_VIA_EMAIL
+      - PARTIALLY_ARRIVED
+      - PARTIALLY_SEATED
+      - FINISHED
+    tockPatron:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+          description: A unique identifier assigned to the patron. Used internally by Tock.
+        email:
+          type: string
+          description: >-
+            The email address of the patron. No two patrons can have the same email address, but an email
+            address is not required of all patrons.
+        firstName:
+          type: string
+          description: If known, the first name of the patron.
+        lastName:
+          type: string
+          description: If known, the last name of the patron.
+        phone:
+          type: string
+          description: If known, the phone number of the patron without the country code.
+        phoneCountryCode:
+          type: string
+          description: >-
+            If known, the country code for the patron using the prefix code and the ISO 3166-1 alpha-2
+            country code (e.g. "+1 US").
+        zipCode:
+          type: string
+          description: If known, the zip code given by the patron in their Tock profile.
+        imageUrl:
+          type: string
+          description: If known, a URL to a public image of the patron.
+        isoCountryCode:
+          type: string
+          description: If known, the ISO 3166-1 alpha-2 country code where the patron lives.
+        loyaltyProgramCardNumber:
+          type: string
+          description: >-
+            If known and if the business participates in an integrated loyalty program, this field contains
+            the card number given to the patron by the business.
+        loyaltyProgramAccountId:
+          type: string
+          description: >-
+            If known and if the business participates in an integrated loyalty program, this field contains
+            the account identifier given to the patron by the business.
+    tockPaymentType:
+      type: string
+      enum:
+      - NONE
+      - CREDIT_CARD
+      - CHASE_PAY
+      - CHASE_ULTIMATE_REWARDS
+      - TOCK_GIFT_CARD
+      - PAY_ON_SITE
+    tockPayout:
+      type: object
+      properties:
+        id:
+          type: string
+          format: int64
+          description: A unique identifier assigned to the payout. Used internally by Tock.
+        arrivalDate:
+          type: string
+          description: >-
+            The date that this payout is expected to arrive in the business bank account pending any potential
+            rejections by the bank.
+    tockPurchasedCustomCharge:
+      type: object
+      properties:
+        name:
+          type: string
+          description: >-
+            The name given to the custom charge when created on the reservation in the Tock Dashboard.
+        amountCents:
+          type: string
+          format: uint64
+          description: The amount added to the total price for this custom charge.
+    tockPurchasedExperience:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+          description: A unique identifier for the experience. Used internally by Tock.
+        name:
+          type: string
+          description: >-
+            The name given to the experience which is displayed prominently when booking or within the
+            Tock Dashboard.
+        amountCents:
+          type: string
+          format: uint64
+          description: >-
+            The amount added to the total price for the experience and does not contain any values associated
+            with add-on(s) or menu item(s).
+        posSku:
+          type: string
+          description: >-
+            If assigned by the business from the Tock Dashboard, this field will be the SKU denoting the
+            experience.
+        variety:
+          $ref: '#/components/schemas/tockExperienceVariety'
+          description: The type of experience being offered by the business.
+    tockPurchasedFee:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+          description: A unique identifier for the fee. Used internally by Tock.
+        name:
+          type: string
+          description: The name assigned in the Tock Dashboard to this additional fee.
+        amountCents:
+          type: string
+          format: uint64
+          description: The amount added to the total price for this additional fee.
+        posSku:
+          type: string
+          description: >-
+            If assigned by the business from the Tock Dashboard, this field will be the SKU denoting the
+            fee.
+    tockPurchasedOption:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+          description: A unique identifier for the option. Used internally by Tock.
+        name:
+          type: string
+          description: The name assigned in the Tock Dashboard to this optional item.
+        amountCents:
+          type: string
+          format: uint64
+          description: >-
+            The amount added to the total price for just this one option purchased along with the experience.
+        posSku:
+          type: string
+          description: >-
+            If assigned by the business from the Tock Dashboard, this field will be the SKU denoting the
+            option.
+    tockQuestion:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The short name of this question assigned in the Tock Dashboard.
+        response:
+          type: array
+          items:
+            type: string
+          description: >-
+            All responses to the question. If the guest was presented with checkboxes to answer the question
+            there may be multiple responses listed through this field.
+    tockRating:
+      type: string
+      enum:
+      - BAD
+      - NEUTRAL
+      - GOOD
+    tockRatingType:
+      type: string
+      enum:
+      - THREE_POINT_EMOTICON
+      - FIVE_POINT_STAR
+    tockRefund:
+      type: object
+      properties:
+        id:
+          type: string
+          format: int64
+          description: A unique identifier assigned to the refund. Used internally by Tock.
+        amount:
+          type: integer
+          format: int32
+          description: >-
+            The amount of the original payment that was refunded. This value will always be a positive
+            number.
+        isDispute:
+          type: boolean
+          description: >-
+            This field indicates whether this refund was issued because of a lost chargeback dispute.
+        status:
+          $ref: '#/components/schemas/tockRefundRefundStatus'
+          description: >-
+            The current status of the refund within the payment processor that serviced the original payment.
+        payout:
+          $ref: '#/components/schemas/tockPayout'
+          description: >-
+            The Tock-generated payout that includes this refund as a debit to the business bank account.
+            If the business connects to Tock for payment processing using Stripe this field will not be
+            present.
+        processorId:
+          type: string
+          description: >-
+            A unique identifier assigned to the refund by the payment processor indicated by the paymentType.
+        processorFeeRefundedCents:
+          type: integer
+          format: int64
+          description: >-
+            The amount the of the payment processor fee that was returned as a result of the refund.
+        tockFeeRefundedCents:
+          type: integer
+          format: int64
+          description: The amount of the Tock fee that was returned as a result of the refund.
+    tockRefundRefundStatus:
+      type: string
+      enum:
+      - COMPLETE
+      - DEFERRED
+      - ERROR
+    tockReservation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+          description: >-
+            A unique identifier for the reservation. This identifier will not change no matter what edits
+            have been made to the reservation. Transferred reservations will get new unique identifiers
+            and are considered new reservations.
+        business:
+          $ref: '#/components/schemas/tockBusiness'
+          description: >-
+            Details about the business this reservation is for; useful for business groups that have multiple
+            businesses supported by Tock.
+        dateTime:
+          type: string
+          description: >-
+            The start time of the reservation in the business time zone of the form HH:MM using the 24
+            hour clock and excluding seconds (e.g. 4:15pm would have a dateTime of "16:15").
+        partySize:
+          type: integer
+          format: int32
+          description: The size of the party on the reservation.
+        experience:
+          $ref: '#/components/schemas/tockPurchasedExperience'
+          description: >-
+            The experience assigned to the reservation in Tock. This is present even if no money is attached
+            to the reservation and will not be present for walk-ins.
+        option:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockPurchasedOption'
+          description: >-
+            Any add-on(s) or menu item(s) that has been booked along with this reservation. This is present
+            even if no money is attached to this option and will not be present for walk-ins.
+        fee:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockPurchasedFee'
+          description: >-
+            Any fee(s) charged automatically to the party as part of the reservation. This does not include
+            any custom fees applied to the reservation from the Tock Dashboard.
+        customCharge:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockPurchasedCustomCharge'
+          description: >-
+            Any custom charges charged to the party as part of the reservation through the Tock Dashboard.
+        keyValue:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockKeyValue'
+          description: >-
+            Any metadata associated with this reservation collected during the checkout process. Examples
+            of potential metadata are UTM tracking parameters indicating how the guest originally came
+            to make the reservation.
+        compAmountCents:
+          type: integer
+          format: int32
+          description: >-
+            The total amount of all complimentary discounts applied through the Tock Dashboard to a paid
+            reservation.
+        subtotalCents:
+          type: integer
+          format: int32
+          description: The subtotal given on the receipt for the reservation.
+        taxRate:
+          type: number
+          format: float
+          description: >-
+            If tax has been applied to the subtotal and not for individual purchased items, this is the
+            tax rate applied to the subtotal. If using multiple tax rates for individual items, this field
+            will not be present.
+        taxCents:
+          type: integer
+          format: int32
+          description: The total amount of tax collected for the reservation.
+        serviceChargeRate:
+          type: number
+          format: float
+          description: >-
+            If a service charge has been applied to the reservation, this field is the rate applied to
+            the subtotal.
+        serviceChargeCents:
+          type: integer
+          format: int32
+          description: >-
+            If a service charge has been applied to the reservation, this field is the amount of service
+            charge added to the total price.
+        selectedGratuityRate:
+          type: number
+          format: float
+          description: >-
+            If gratuity has been added to the reservation by the party through choosing a fixed percentage,
+            this field is the gratuity rate selected and applied to the subtotal. If a custom gratuity
+            was chosen manually, this field will be zero.
+        gratuityCents:
+          type: integer
+          format: int32
+          description: >-
+            The gratuity applied by the party to the reservation and added to the total price.
+        eventFeeRate:
+          type: number
+          format: float
+          description: >-
+            For reservations to events where a fee is applied, the event fee rate applied to the subtotal.
+        eventFeeCents:
+          type: integer
+          format: int32
+          description: >-
+            For reservations to events where a fee is applied, the total amount of that fee added to the
+            total price.
+        customFeeRate:
+          type: number
+          format: float
+          description: >-
+            If applied to the reservation from the Tock Dashboard, this field contains the custom fee
+            rate applied to the subtotal and added to the total price.
+        customFeeCents:
+          type: integer
+          format: int32
+          description: >-
+            If applied to the reservation from the Tock Dashboard, this field contains the custom fee
+            amount applied to the subtotal and added to the total price.
+        customFeeName:
+          type: string
+          description: >-
+            If applied to the reservation from the Tock Dashboard, this field contains the name of the
+            custom fee applied to the total price.
+        totalPriceCents:
+          type: integer
+          format: int32
+          description: The total price of the reservation including all fees, charges, taxes.
+        discount:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockDiscount'
+          description: >-
+            Any discounts applied to the total price of the reservation, either automatically during checkout
+            or through application in the Tock Dashboard. This does not include complimentary discounts
+            applied to the reservation (see compAmountCents for that value).
+        netAmountPaidCents:
+          type: integer
+          format: int32
+          description: >-
+            The amount that has been charged to the party for this reservation. Does not need to be the
+            same as the total price of the reservation.
+        amountDueCents:
+          type: integer
+          format: int32
+          description: >-
+            The amount that is still due to cover the total price of the reservation. This will be the
+            totalPriceCents field less the netAmountPaidCents field.
+        createdTimestamp:
+          type: string
+          format: uint64
+          description: >-
+            The timestamp for when this reservation was first created, in milliseconds since the Unix
+            Epoch.
+        lastUpdatedTimestamp:
+          type: string
+          format: uint64
+          description: >-
+            The timestamp for the last modification to this reservation, in milliseconds since the Unix
+            Epoch.
+        serviceDateTimestamp:
+          type: string
+          format: uint64
+          description: >-
+            The timestamp for the start time of the reservation, in milliseconds since the Unix Epoch.
+            This is a convenience field as it does not require the business timezone.
+        transferredOut:
+          type: boolean
+          description: Whether the reservation has been transferred to a different party.
+        transferredOutAmountCents:
+          type: integer
+          format: int64
+          description: >-
+            If this reservation has been transferred to a different party, the amount the original owner
+            charged the transferee for the reservation.
+        isCancelled:
+          type: boolean
+          description: >-
+            Whether this reservation has been marked as cancelled, either by the user or through the Tock
+            Dashboard. No modifications can happen to a reservation after it is cancelled.
+        ownerPatron:
+          $ref: '#/components/schemas/tockPatron'
+          description: >-
+            The "owner" patron is the one who initiated payment for the reservation. It is most commonly
+            the same as the "diner" patron unless it booked through a concierge or altered directly from
+            the Tock Dashboard.
+        dinerPatron:
+          $ref: '#/components/schemas/tockPatron'
+          description: >-
+            The patron whose name will appear on the reservation in the Tock Dashboard. Is is most commonly
+            the same as the ownerPatron unless booked through a concierge or altered directly from the
+            Tock Dashboard.
+        versionId:
+          type: string
+          format: uint64
+          description: >-
+            A version identifier used by Tock to indicate how many edits have been made to the original
+            reservation. This is for Tock internal use only and a better indication of the number of edits
+            is in the sequenceId field.
+        loyaltyProgramCardNumberUsed:
+          type: string
+          description: >-
+            If the reservation was made by a patron that has linked their loyalty program account, this
+            field contains the unique number used to identify the loyalty card used.
+        visitFeedback:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockVisitFeedback'
+          description: >-
+            The results of answering any questions about the reservation after the party has visited.
+        visitTag:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockVisitTag'
+          description: >-
+            Any tags applied to the reservation in the Tock Dashboard specific to this reservation and
+            not to the guest as a whole.
+        payment:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockTockPayment'
+          description: >-
+            All payments made to secure this reservation. Payments take many forms (credit cards, gift
+            cards, reward points, etc.) and the type of payment used is indicated inside the nested objects.
+        refund:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockRefund'
+          description: >-
+            Any refunds applied to any payments made on this reservation. Refunds are applied in the Tock
+            Dashboard through edits to the reservation or applying any form of discount. These refunds
+            are applied to the original form(s) of payment to secure the reservation.
+        partyState:
+          $ref: '#/components/schemas/tockPartyState'
+          description: The current state of the party within the Tock Dashboard.
+        sequenceId:
+          type: integer
+          format: int64
+          description: >-
+            An identifier that starts at zero and increases by one for each edit to the reservation. Use
+            this field to denote that the reservation has changed since the previous sequenceId.
+        confirmationCode:
+          type: string
+          description: >-
+            The reservation confirmation code given to the party. Currently always eight characters. This
+            field is not set for walk-ins.
+        serverName:
+          type: string
+          description: >-
+            The employees names used to serve the party for the reservation. If multiple employees were
+            assigned, they will be delimited with the word "and" (e.g. Luci and Dezi).
+        walkinId:
+          type: string
+          format: int64
+          description: Used only for encoding walk-in data, maps to the visit id
+        note:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockNote'
+          description: >-
+            A note that has been attached to this reservation or guest through actions in the Tock Dashboard.
+            Imported reservations may also have notes.
+        question:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockQuestion'
+          description: >-
+            Any questions answered by the party about this reservation prior to the service date.
+        table:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockTable'
+          description: Table(s) assigned to the reservation sorted alphabetically by ascending order.
+        seatingOption:
+          $ref: '#/components/schemas/tockSeatingOption'
+          description: An area of the floor plan (also known as seating area)
+    tockSeatingOption:
+      type: object
+      properties:
+        id:
+          type: string
+          format: int64
+          description: A unique identifier for the seating option. Used internally by Tock.
+        name:
+          type: string
+          description: >-
+            The name given to the seating option which is displayed within the Tock Dashboard.
+        isOutdoors:
+          type: boolean
+          description: This field indicates whether or not the seating option is outdoors.
+    tockTable:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+          description: A unique identifier. Used internally by Tock.
+        name:
+          type: string
+          description: The name of the table.
+        room:
+          type: string
+          description: The room the table resides in.
+        externalId:
+          type: string
+          description: ID used by external integrations
+    tockTockPayment:
+      type: object
+      properties:
+        id:
+          type: string
+          format: int64
+          description: A unique identifier assigned to the payment. Used internally by Tock.
+        amount:
+          type: integer
+          format: int32
+          description: The amount of the reservation that was paid using the paymentType.
+        payout:
+          $ref: '#/components/schemas/tockPayout'
+          description: >-
+            The Tock-generated payout that includes this payment as a credit to the business bank account.
+            If the business connects to Tock for payment processing using Stripe this field will not be
+            present.
+        paymentType:
+          $ref: '#/components/schemas/tockPaymentType'
+          description: The form of payment used for this portion of total price on the reservation.
+        processorId:
+          type: string
+          description: >-
+            A unique identifier assigned to the payment by the payment processor indicated by the paymentType.
+        processorFeeCents:
+          type: integer
+          format: int64
+          description: The amount the payment processor kept from the payment to perform the service.
+        tockFeeCents:
+          type: integer
+          format: int64
+          description: The fee that Tock kept from the payment to perform the service.
+    tockVisitFeedback:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+          description: A unique identifier for this feedback. Used internally by Tock.
+        rating:
+          $ref: '#/components/schemas/tockRating'
+          description: The rating supplied by the guest indicating their opinion about the experience.
+        message:
+          type: string
+          description: A custom message included with the feedback from the guest.
+        isLocked:
+          type: boolean
+          description: >-
+            Feedback can be altered until a message is given along with the rating. This indicates whether
+            the feedback has been locked with a message and is unable to be altered again.
+        createdAtEpochSec:
+          type: string
+          format: int64
+          description: >-
+            The timestamp for when the feedback was submitted by the guest, in seconds from the Unix Epoch.
+        ratingType:
+          $ref: '#/components/schemas/tockRatingType'
+          description: The rating scale of feedback request
+        ratingScore:
+          type: integer
+          format: int64
+          description: The rating supplied by the guest indicating their opinion about the experience.
+    tockVisitTag:
+      type: object
+      properties:
+        tag:
+          type: string
+          description: The name of the tag assigned to the reservation.

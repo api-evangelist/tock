@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/guest-profile-phone-type-structure.json",
+  "name": "tockPhoneType",
+  "description": "tockPhoneType schema from Tock Guest Model",
+  "type": "string",
+  "enum": [
+    "MOBILE",
+    "HOME",
+    "WORK",
+    "PAGER",
+    "FAX",
+    "HOTEL",
+    "OTHER"
+  ]
+}

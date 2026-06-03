@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-table-schema.json",
+  "title": "tockTable",
+  "description": "tockTable schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A unique identifier. Used internally by Tock."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the table."
+    },
+    "room": {
+      "type": "string",
+      "description": "The room the table resides in."
+    },
+    "externalId": {
+      "type": "string",
+      "description": "ID used by external integrations"
+    }
+  }
+}

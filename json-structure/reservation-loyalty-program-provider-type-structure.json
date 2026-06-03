@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-loyalty-program-provider-type-structure.json",
+  "name": "tockLoyaltyProgramProviderType",
+  "description": "tockLoyaltyProgramProviderType schema from Tock Reservation Model",
+  "type": "string",
+  "enum": [
+    "PAYTRONIX",
+    "ANNEXCLOUD"
+  ]
+}

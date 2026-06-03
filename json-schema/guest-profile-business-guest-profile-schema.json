@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/guest-profile-business-guest-profile-schema.json",
+  "title": "tockBusinessGuestProfile",
+  "description": "tockBusinessGuestProfile schema from Tock Guest Model",
+  "type": "object",
+  "properties": {
+    "business": {
+      "$ref": "guest-profile-business-schema.json",
+      "description": "The details of the business in the business group."
+    },
+    "note": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "guest-profile-audited-note-schema.json"
+      },
+      "description": "A list of notes attached to the guest for just this business and not shared with every business in the business group."
+    },
+    "tag": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "A list of tags attached to this guest for just this business and not shared with every business in the business group."
+    },
+    "spend": {
+      "$ref": "guest-profile-business-spend-schema.json",
+      "description": "Guest spend data for the business."
+    }
+  }
+}

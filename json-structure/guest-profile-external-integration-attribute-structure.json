@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/guest-profile-external-integration-attribute-structure.json",
+  "name": "tockExternalIntegrationAttribute",
+  "description": "tockExternalIntegrationAttribute schema from Tock Guest Model",
+  "type": "object",
+  "properties": {
+    "businessId": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A unique identifier for the business. Used internally by Tock."
+    },
+    "patronId": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A unique identifier for the patron that will be the same as Patron.id. Used internally by Tock."
+    },
+    "type": {
+      "type": "string",
+      "description": "The name of the external system this attribute originated from."
+    },
+    "attribute": {
+      "type": "string",
+      "description": "The name of the attribute assigned to this guest in the external system."
+    },
+    "stringValue": {
+      "type": "string",
+      "description": "If the attribute value is a string type, this field will be the resulting value of the attribute."
+    },
+    "intValue": {
+      "type": "string",
+      "description": "If the attribute value is a number type, this field will be the resulting value of the attribute."
+    }
+  }
+}

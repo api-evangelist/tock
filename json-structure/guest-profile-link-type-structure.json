@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/guest-profile-link-type-structure.json",
+  "name": "tockLinkType",
+  "description": "tockLinkType schema from Tock Guest Model",
+  "type": "string",
+  "enum": [
+    "IMAGE",
+    "TWITTER",
+    "FACEBOOK",
+    "LINKEDIN",
+    "INSTAGRAM",
+    "IMAGE_BACKUP"
+  ]
+}

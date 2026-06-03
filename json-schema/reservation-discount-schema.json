@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-discount-schema.json",
+  "title": "tockDiscount",
+  "description": "tockDiscount schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "A textual description of the discount."
+    },
+    "amountCents": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The amount of the discount applied in some manner to the total price. This value will always be a positive number."
+    },
+    "discountType": {
+      "$ref": "reservation-discount-discount-type-schema.json",
+      "description": "Where and how the discount is applied to the total price."
+    },
+    "giftCard": {
+      "$ref": "reservation-gift-card-schema.json",
+      "description": "If a gift card was used to apply the discount to the total price, this field will contain extra information about the gift card used."
+    },
+    "confirmationNumber": {
+      "type": "string",
+      "description": "If a gift card was used to apply the discount to the total price, this field will contain a confirmation number from the gift card provider that can be used to reconcile between Tock and the provider."
+    },
+    "promoCode": {
+      "type": "string",
+      "description": "If the discount is applied through a promotional code, this field will be the short name of promo code as configured in the Tock Dashboard."
+    },
+    "ticketTypePromoCodeId": {
+      "type": "string",
+      "format": "uint64",
+      "description": "If the discount is applied through a promotional code, this field is a unique identifier assigned to promotional code. Used internally by Tock."
+    },
+    "loyaltyProgram": {
+      "$ref": "reservation-loyalty-program-schema.json",
+      "description": "If the discount is for redeeming loyalty rewards program points, this field will contain extra information about the loyalty program used."
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-refund-structure.json",
+  "name": "tockRefund",
+  "description": "tockRefund schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "int64",
+      "description": "A unique identifier assigned to the refund. Used internally by Tock."
+    },
+    "amount": {
+      "type": "int32",
+      "description": "The amount of the original payment that was refunded. This value will always be a positive number."
+    },
+    "isDispute": {
+      "type": "boolean",
+      "description": "This field indicates whether this refund was issued because of a lost chargeback dispute."
+    },
+    "status": {
+      "$ref": "reservation-refund-refund-status-schema.json",
+      "description": "The current status of the refund within the payment processor that serviced the original payment."
+    },
+    "payout": {
+      "$ref": "reservation-payout-schema.json",
+      "description": "The Tock-generated payout that includes this refund as a debit to the business bank account. If the business connects to Tock for payment processing using Stripe this field will not be present."
+    },
+    "processorId": {
+      "type": "string",
+      "description": "A unique identifier assigned to the refund by the payment processor indicated by the paymentType."
+    },
+    "processorFeeRefundedCents": {
+      "type": "int64",
+      "description": "The amount the of the payment processor fee that was returned as a result of the refund."
+    },
+    "tockFeeRefundedCents": {
+      "type": "int64",
+      "description": "The amount of the Tock fee that was returned as a result of the refund."
+    }
+  }
+}

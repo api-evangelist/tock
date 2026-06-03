@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-key-value-structure.json",
+  "name": "tockKeyValue",
+  "description": "tockKeyValue schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "attribute": {
+      "type": "string",
+      "description": "The name of the metadata attribute."
+    },
+    "attributeValue": {
+      "type": "string",
+      "description": "The value of the metadata attribute."
+    }
+  }
+}

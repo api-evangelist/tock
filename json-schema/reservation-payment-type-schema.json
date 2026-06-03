@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-payment-type-schema.json",
+  "title": "tockPaymentType",
+  "description": "tockPaymentType schema from Tock Reservation Model",
+  "type": "string",
+  "enum": [
+    "NONE",
+    "CREDIT_CARD",
+    "CHASE_PAY",
+    "CHASE_ULTIMATE_REWARDS",
+    "TOCK_GIFT_CARD",
+    "PAY_ON_SITE"
+  ]
+}

@@ -1,0 +1,532 @@
+# Converted from Tock's published Swagger 2.0 model spec; schemas are verbatim from
+# https://api.exploretock.com/docs/latest/guest_profile.swagger.json
+openapi: 3.0.3
+info:
+  title: Tock Guest Model
+  version: '2.7'
+  description: >-
+    Data model for Tock guest profiles as published in the Tock API documentation (https://api.exploretock.com/docs/latest/guest_profile.html).
+    Guest profiles are read via the Data Exports API and created/updated via the Guest Profile Ingest
+    API (basic guest information only). This specification documents the canonical guest profile object
+    and all nested types. Access requires a Tock API key (request from integrate@tockhq.com) and a Premium
+    or Premium Unlimited plan.
+  contact:
+    name: Tock Engineering
+    email: eng@tockhq.com
+  x-converted-from: swagger-2.0
+  x-source-url: https://api.exploretock.com/docs/latest/guest_profile.swagger.json
+  x-last-validated: '2026-06-03'
+servers:
+- url: https://api.exploretock.com
+  description: Tock API (partner access; API key required, Premium/Premium Unlimited plan)
+paths: {}
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Tock-issued API key. Request access by emailing integrate@tockhq.com from a Tock Dashboard Account
+        Owner; available on Premium and Premium Unlimited plans.
+  schemas:
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/protobufAny'
+    tockAddress:
+      type: object
+      properties:
+        address1:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        zipCode:
+          type: string
+    tockAuditedNote:
+      type: object
+      properties:
+        note:
+          type: string
+          description: The text of the note.
+        lastUpdatedBy:
+          $ref: '#/components/schemas/tockPatron'
+          description: >-
+            The account in Tock that made the last update to this note, whether that be the guest or someone
+            using the Tock Dashboard.
+        lastUpdatedAtTimestampMs:
+          type: string
+          format: uint64
+          description: >-
+            The timestamp when the note was created or updated, in milliseconds since the Unix Epoch.
+        previousVersionId:
+          type: string
+          format: uint64
+          description: >-
+            A unique identifier for the update or creation of the note. Used internally by Tock.
+        noteType:
+          $ref: '#/components/schemas/tockNoteType'
+          description: The type of note this represents.
+    tockBusiness:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+          description: A unique identifier for the business. Used internally by Tock.
+        name:
+          type: string
+          description: The name given to the business in the Tock Dashboard.
+        domainName:
+          type: string
+          description: >-
+            The unique section of exploretock.com that is devoted to showing inventory and allowing guests
+            to book reservations. The top-level URL will be of the form https://exploretock.com/{domainName}/.
+        locale:
+          type: string
+          description: >-
+            The locale that the business presents in using the ISO-3166 country code and ISO-639 language
+            code (e.g. en-us for US English, es-es for Spain Spanish).
+        currencyCode:
+          type: string
+          description: >-
+            The ISO 4217 three letter currency code that the business presents on exploretock.coms (e.g.
+            "USD" for US Dollar, "GBP" for Great Britain Pound).
+        timeZone:
+          type: string
+          description: >-
+            The time zone in which the business operates in the IANA named format (e.g. "America/Chicago").
+    tockBusinessGroupGuestProfile:
+      type: object
+      properties:
+        note:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockAuditedNote'
+          description: >-
+            The list of notes attached to this guest for the business group that is shared with all businesses.
+        tag:
+          type: array
+          items:
+            type: string
+          description: >-
+            The list of tags attached to this guest for the business group that is shared with all businesses.
+        spend:
+          $ref: '#/components/schemas/tockBusinessGroupSpend'
+          description: Guest spend data for the business group.
+    tockBusinessGroupSpend:
+      type: object
+      properties:
+        totalSpendCents:
+          type: string
+          format: uint64
+          description: Total amount in cents the guest has spent at any business in the business group.
+        spendInLastYearCents:
+          type: string
+          format: uint64
+          description: >-
+            Total amount in cents the guest has spent at any business in the business group in the last
+            year (12 months).
+    tockBusinessGuestProfile:
+      type: object
+      properties:
+        business:
+          $ref: '#/components/schemas/tockBusiness'
+          description: The details of the business in the business group.
+        note:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockAuditedNote'
+          description: >-
+            A list of notes attached to the guest for just this business and not shared with every business
+            in the business group.
+        tag:
+          type: array
+          items:
+            type: string
+          description: >-
+            A list of tags attached to this guest for just this business and not shared with every business
+            in the business group.
+        spend:
+          $ref: '#/components/schemas/tockBusinessSpend'
+          description: Guest spend data for the business.
+    tockBusinessSpend:
+      type: object
+      properties:
+        totalSpendCents:
+          type: string
+          format: uint64
+          description: Total amount in cents the guest has spent at the business.
+        averageSpendPerVisitCents:
+          type: string
+          format: uint64
+          description: Average amount in cents the guest has spent per visit at the business.
+        spendInLastYearCents:
+          type: string
+          format: uint64
+          description: >-
+            Total amount in cents the guest has spent at the business in the last year (12 months).
+    tockDay:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/tockDayType'
+          description: The type of special day as specified by the guest.
+        day:
+          type: integer
+          format: int64
+          description: The numerical day within the month.
+        month:
+          type: integer
+          format: int64
+          description: The numerical month within the year.
+        year:
+          type: integer
+          format: int64
+          description: If specified, the year of the day.
+    tockDayType:
+      type: string
+      enum:
+      - BIRTHDAY
+      - OTHER_BIRTHDAY
+      - ANNIVERSARY
+      - PARTNER_BIRTHDAY
+    tockExternalIntegrationAttribute:
+      type: object
+      properties:
+        businessId:
+          type: string
+          format: uint64
+          description: A unique identifier for the business. Used internally by Tock.
+        patronId:
+          type: string
+          format: uint64
+          description: >-
+            A unique identifier for the patron that will be the same as Patron.id. Used internally by
+            Tock.
+        type:
+          type: string
+          description: The name of the external system this attribute originated from.
+        attribute:
+          type: string
+          description: The name of the attribute assigned to this guest in the external system.
+        stringValue:
+          type: string
+          description: >-
+            If the attribute value is a string type, this field will be the resulting value of the attribute.
+        intValue:
+          type: string
+          description: >-
+            If the attribute value is a number type, this field will be the resulting value of the attribute.
+    tockGetGuestResponse:
+      type: object
+      properties:
+        guest:
+          $ref: '#/components/schemas/tockGuestProfile'
+    tockGuestProfile:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+          description: >-
+            A unique identifier for the guest. This identifier can change with edits to the guest by the
+            business and should not be stored. For identifiers that do not change with edits, see Patron.id
+            instead.
+        patron:
+          $ref: '#/components/schemas/tockPatron'
+          description: >-
+            The Tock account that corresponds to this guest profile. This will be a subset of the full
+            guest profile and the contents are owned and only changeable by the logged-in user.
+        nickName:
+          type: string
+          description: A nickname given to this user given by the business.
+        company:
+          type: string
+          description: If known, the company where this guest is employed.
+        jobTitle:
+          type: string
+          description: If known, the job title at the company where this guest is employed.
+        spouseName:
+          type: string
+          description: If known, the name of the guest's spouse.
+        spouse:
+          $ref: '#/components/schemas/tockPatron'
+          description: >-
+            If known, the connected Tock account for this guest's spouse linked to this guest by the business
+            or guest.
+        address:
+          $ref: '#/components/schemas/tockAddress'
+          description: If known, the address assigned to this guest.
+        phone:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockPhone'
+          description: If known, a list of phone numbers for contacting the guest.
+        day:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockDay'
+          description: If known, a list of special days that have been recorded for this guest.
+        link:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockLink'
+          description: External links to public information about this guest found on the Internet.
+        patronProfileDietaryRestriction:
+          type: array
+          items:
+            type: string
+          description: >-
+            Notes that the guest has given to all businesses on Tock indicating their dietary restrictions.
+            This information cannot be edited by the business.
+        patronProfileHospitalityPreference:
+          type: array
+          items:
+            type: string
+          description: >-
+            Notes the guest has given to all businesses on Tock indicating preferences that the guest
+            would like the business to know about. This information cannot be edited by the business.
+        patronProfileAversions:
+          type: string
+          description: >-
+            Notes the guest has given to all businesses on Tock indicating aversions that the business
+            should avoid. This information cannot be edited by the business.
+        businessGroupId:
+          type: string
+          format: uint64
+          description: A unique identifier for the business group. Used internally by Tock.
+        nextGuestProfileId:
+          type: string
+          format: uint64
+          description: >-
+            If this guest profile has been edited in the past, this will be the identifier for the guest
+            profile that contains the edit. If this value is not set, this guest profile information is
+            the most up-to-date for the business group.
+        importedProfile:
+          $ref: '#/components/schemas/tockImportedGuestProfile'
+        businessGuestProfile:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockBusinessGuestProfile'
+          description: >-
+            Some businesses in the same business group prefer to have their own notes and tags which are
+            not automatically shared with the others in the group. This list contains the notes and tags
+            for each business in the business group for this guest.
+        businessGroupGuestProfile:
+          $ref: '#/components/schemas/tockBusinessGroupGuestProfile'
+          description: >-
+            The notes and tags for the guest that are shared with all businesses in a business group.
+        tag:
+          type: array
+          items:
+            type: string
+          description: >-
+            If tags are shared amongst all businesses in the business group, this will be the tags applied
+            to the guest for the business group.
+        attribute:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockExternalIntegrationAttribute'
+          description: >-
+            If the business is synchronizing guest information from another system other than Tock, this
+            field will contain the unique identifiers and club memberships for this guest in the external
+            system.
+        canEdit:
+          type: boolean
+          description: >-
+            If the guest has never logged in or verified their Tock account, this value will be set to
+            true.
+        isArchived:
+          type: boolean
+          description: >-
+            If there exists newer changes to this guest (when nextGuestProfileId is present), this value
+            will be set to true.
+        updatedBy:
+          $ref: '#/components/schemas/tockPatron'
+          description: The user who made the last update to this guest profile.
+        loyaltyProgramCardNumber:
+          type: string
+          description: >-
+            If the guest has made a successful login to a loyalty program integrated and enabled in the
+            Tock Dashboard, this will be the card number for the guest's account in the loyalty program.
+        loyaltyProgramMembershipLevel:
+          type: string
+          description: >-
+            If the guest has made a successful login to a loyalty program integrated and enabled in the
+            Tock Dashboard and the guest has a membership level specified with their account, this will
+            be the name of the membership level.
+        loyaltyProgramAccountId:
+          type: string
+          description: >-
+            If the guest has an account tied to a loyalty program integrated and enabled in the Tock Dashboard
+            this value will be the unique account identifier within the loyalty program.
+        optInSource:
+          $ref: '#/components/schemas/tockOptInSource'
+          description: >-
+            Whether or not the guest has opted into email marketing from the business or Tock, the value
+            of this field indicates the place where the guest made their choice.
+        optIn:
+          type: boolean
+          description: >-
+            Whether the guest has explicitly opted into email marketing from the business or Tock.
+        versionId:
+          type: string
+          format: uint64
+          description: >-
+            This value indicates the number of edits that have been made to this guest's profile for this
+            business in Tock.
+        createdAtTimestamp:
+          type: string
+          format: uint64
+          description: >-
+            The timestamp for when the guest profile was created, in milliseconds since the Unix Epoch.
+        updatedAtTimestamp:
+          type: string
+          format: uint64
+          description: >-
+            The timestamp for this edit to the guest profile, in milliseconds since the Unix Epoch. If
+            this is the first edit, it will be the same as createdAtTimestamp.
+        isTockVerified:
+          type: boolean
+        dateOptedIn:
+          type: string
+          description: >-
+            The date and time when the guest opted in/out of email marketing from the business.
+    tockImportedGuestProfile:
+      type: object
+      properties:
+        link:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/tockLink'
+    tockLink:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/tockLinkType'
+          description: The site that hosts the link, or whether it is a link to a public image.
+        link:
+          type: string
+          description: The URL to the public link connected to this guest.
+    tockLinkType:
+      type: string
+      enum:
+      - IMAGE
+      - TWITTER
+      - FACEBOOK
+      - LINKEDIN
+      - INSTAGRAM
+      - IMAGE_BACKUP
+    tockNoteType:
+      type: string
+      enum:
+      - GENERAL
+      - DIETARY
+    tockOptInSource:
+      type: string
+      enum:
+      - PURCHASE
+      - WAITLIST
+      - NEWSLETTER
+      - IMPORTED
+      - NO_OPT_IN
+      - OPTED_OUT
+    tockPatron:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+          description: A unique identifier assigned to the patron. Used internally by Tock.
+        email:
+          type: string
+          description: >-
+            The email address of the patron. No two patrons can have the same email address, but an email
+            address is not required of all patrons.
+        firstName:
+          type: string
+          description: If known, the first name of the patron.
+        lastName:
+          type: string
+          description: If known, the last name of the patron.
+        phone:
+          type: string
+          description: If known, the phone number of the patron without the country code.
+        phoneCountryCode:
+          type: string
+          description: >-
+            If known, the country code for the patron using the prefix code and the ISO 3166-1 alpha-2
+            country code (e.g. "+1 US").
+        zipCode:
+          type: string
+          description: If known, the zip code given by the patron in their Tock profile.
+        imageUrl:
+          type: string
+          description: If known, a URL to a public image of the patron.
+        isoCountryCode:
+          type: string
+          description: If known, the ISO 3166-1 alpha-2 country code where the patron lives.
+        loyaltyProgramCardNumber:
+          type: string
+          description: >-
+            If known and if the business participates in an integrated loyalty program, this field contains
+            the card number given to the patron by the business.
+        loyaltyProgramAccountId:
+          type: string
+          description: >-
+            If known and if the business participates in an integrated loyalty program, this field contains
+            the account identifier given to the patron by the business.
+    tockPhone:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/tockPhoneType'
+          description: The use of this phone as specified by the guest.
+        phone:
+          type: string
+          description: The text of the phone number without the phone country code.
+        phoneCountryCode:
+          type: string
+          description: >-
+            If known, the country code for the phone number that includes both the numerical and ISO country
+            codes (e.g. "+1 US").
+    tockPhoneType:
+      type: string
+      enum:
+      - MOBILE
+      - HOME
+      - WORK
+      - PAGER
+      - FAX
+      - HOTEL
+      - OTHER

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/guest-profile-opt-in-source-structure.json",
+  "name": "tockOptInSource",
+  "description": "tockOptInSource schema from Tock Guest Model",
+  "type": "string",
+  "enum": [
+    "PURCHASE",
+    "WAITLIST",
+    "NEWSLETTER",
+    "IMPORTED",
+    "NO_OPT_IN",
+    "OPTED_OUT"
+  ]
+}

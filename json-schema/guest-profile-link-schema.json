@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/guest-profile-link-schema.json",
+  "title": "tockLink",
+  "description": "tockLink schema from Tock Guest Model",
+  "type": "object",
+  "properties": {
+    "type": {
+      "$ref": "guest-profile-link-type-schema.json",
+      "description": "The site that hosts the link, or whether it is a link to a public image."
+    },
+    "link": {
+      "type": "string",
+      "description": "The URL to the public link connected to this guest."
+    }
+  }
+}

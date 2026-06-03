@@ -11,10 +11,17 @@ description: >-
   then sold it to American Express in June 2024 as part of Amex's
   strategy to deepen its dining and premium-experience footprint. Tock
   is operated as an Amex-owned property today and continues to serve
-  restaurants globally through exploretock.com. Tock does not publish a
-  self-serve developer portal; integrations with POS, CRM, marketing,
-  loyalty, and ticketing platforms are delivered through a contractual
-  Partner API program managed by Tock's partnerships team.
+  restaurants globally through exploretock.com. Tock publishes API
+  documentation and data-model specifications at api.exploretock.com
+  covering its Reservation and Guest data models. Programmatic access is
+  delivered through a Data Exports API (twice-daily reservation and guest
+  exports), a Guest Profile Ingest API (create/update of basic guest
+  information), and a real-time Reservation Webhook. API and webhook access
+  is an entitlement of the Premium and Premium Unlimited plans; partners
+  request an API key by emailing integrate@tockhq.com from a Tock Dashboard
+  Account Owner. There is no self-serve developer signup; deeper POS, CRM,
+  marketing, loyalty, and ticketing integrations are coordinated through
+  Tock's partnerships team.
 type: Index
 position: Provider
 access: 3rd-Party
@@ -32,37 +39,94 @@ tags:
   - Dining
   - American Express
 created: '2026-05-08'
-modified: '2026-05-25'
+modified: '2026-06-03'
 specificationVersion: '0.20'
 apis:
-  - aid: tock:partner-api
-    name: Tock Partner API
+  - aid: tock:reservation-api
+    name: Tock Reservation API
     description: >-
-      Contractual REST API offered to approved POS, CRM, marketing,
-      loyalty, ticketing, and accounting partners. The Partner API
-      exposes reservations, ticketed experiences, takeout/delivery
-      orders, guest profiles, and venue configuration; access is
-      granted by Tock's partnerships team under a written agreement.
-      Tock does not publish a self-serve developer portal, OpenAPI
-      definition, or public SDK; documentation and credentials are
-      provided to approved partners directly.
-    humanURL: https://www.exploretock.com/partners
+      Reservation data model and delivery surface published at
+      api.exploretock.com. Reservation records (bookings, ticketed
+      experiences, takeout/delivery orders, parties, pricing, payments,
+      refunds, notes, and post-visit feedback) are delivered to approved
+      partners through a twice-daily Data Exports API and a real-time
+      Reservation Webhook. Tock publishes a Swagger 2.0 data-model spec
+      for the canonical reservation object; reservation data is read-only
+      via API (it cannot be modified programmatically). Access requires a
+      Tock API key and a Premium or Premium Unlimited plan.
+    humanURL: https://api.exploretock.com/docs/latest/reservation.html
     tags:
       - REST
-      - Partner
       - Reservations
       - Ticketed Events
       - Takeout
       - Delivery
-      - Guests
+      - Webhooks
+      - Data Export
     properties:
+      - type: Documentation
+        url: https://api.exploretock.com/docs/latest/reservation.html
+      - type: APIReference
+        url: https://api.exploretock.com/docs/latest/reservation.html
+      - type: OpenAPI
+        url: openapi/tock-reservation-openapi.yml
+      - type: JSONSchema
+        url: json-schema/reservation-reservation-schema.json
+      - type: JSONStructure
+        url: json-structure/reservation-reservation-structure.json
+      - type: JSONLD
+        url: json-ld/tock-reservation-context.jsonld
+      - type: Example
+        url: examples/reservation-reservation-example.json
+      - type: Authentication
+        url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
       - type: Partners
         url: https://www.exploretock.com/partners
+  - aid: tock:guest-api
+    name: Tock Guest API
+    description: >-
+      Guest (CRM) data model and ingest surface published at
+      api.exploretock.com. Guest profiles capture contact details, dietary
+      restrictions and preferences, tags, per-business and group-level
+      notes and spend, and loyalty program references. Profiles are read
+      via the Data Exports API and created or updated via the Guest Profile
+      Ingest API, which supports basic guest information only. Tock
+      publishes a Swagger 2.0 data-model spec for the canonical guest
+      profile object. Access requires a Tock API key and a Premium or
+      Premium Unlimited plan.
+    humanURL: https://api.exploretock.com/docs/latest/guest_profile.html
+    tags:
+      - REST
+      - Guests
+      - CRM
+      - Data Export
+      - Ingest
+    properties:
+      - type: Documentation
+        url: https://api.exploretock.com/docs/latest/guest_profile.html
+      - type: APIReference
+        url: https://api.exploretock.com/docs/latest/guest_profile.html
+      - type: OpenAPI
+        url: openapi/tock-guest-profile-openapi.yml
+      - type: JSONSchema
+        url: json-schema/guest-profile-guest-profile-schema.json
+      - type: JSONStructure
+        url: json-structure/guest-profile-guest-profile-structure.json
+      - type: JSONLD
+        url: json-ld/tock-guest-profile-context.jsonld
+      - type: Example
+        url: examples/guest-profile-guest-profile-example.json
       - type: Authentication
+        url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
+      - type: Partners
         url: https://www.exploretock.com/partners
 common:
   - type: Website
     url: https://www.exploretock.com/
+  - type: Documentation
+    url: https://api.exploretock.com/docs/latest/reservation.html
+  - type: GitHubOrganization
+    url: https://github.com/tocktix
   - type: Partners
     url: https://www.exploretock.com/partners
   - type: SignUp
@@ -187,6 +251,8 @@ common:
     url: rate-limits/tock-rate-limits.yml
   - type: FinOps
     url: finops/tock-finops.yml
+  - type: Vocabulary
+    url: vocabulary/tock-vocabulary.yaml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

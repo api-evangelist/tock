@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-gift-card-schema.json",
+  "title": "tockGiftCard",
+  "description": "tockGiftCard schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "giftCardProvider": {
+      "$ref": "reservation-gift-card-provider-type-schema.json",
+      "description": "The provider of the gift card service for the business."
+    },
+    "externalIdentifier": {
+      "type": "string",
+      "description": "The identifier of the card used for reconciliation with the gift card provider."
+    },
+    "externalPin": {
+      "type": "string",
+      "description": "If provided, the security pin used to authenticate the owner of the gift card."
+    }
+  }
+}

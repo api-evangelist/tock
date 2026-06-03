@@ -1,0 +1,201 @@
+vocabulary: 1.0.0
+info:
+  provider: Tock
+  description: Operational vocabulary for the Tock reservation and guest data models as published at api.exploretock.com.
+    Tock exposes data through a Data Exports API, a Guest Profile Ingest API, and a real-time Reservation
+    Webhook; the published specifications are schema/model definitions (no public REST path catalog),
+    so this vocabulary captures the schema and enum dimensions rather than per-operation actions.
+  created: '2026-05-08'
+  modified: '2026-06-03'
+operational:
+  apis:
+  - name: Tock Reservation Model
+    namespace: reservation
+    version: '2.7'
+    baseUrl: https://api.exploretock.com
+    status: active
+  - name: Tock Guest Model
+    namespace: guest-profile
+    version: '2.7'
+    baseUrl: https://api.exploretock.com
+    status: active
+  resources:
+  - name: Reservations
+    api: reservation
+    description: Bookings, ticketed experiences, takeout/delivery orders with parties, pricing, payments,
+      refunds, notes, and feedback.
+    delivery:
+    - Data Exports API (twice daily)
+    - Real-time Reservation Webhook
+  - name: Guest Profiles
+    api: guest-profile
+    description: 'Unified guest CRM records: contact details, dietary restrictions, preferences, tags,
+      spend, loyalty, and per-business notes.'
+    delivery:
+    - Data Exports API
+    - Guest Profile Ingest API (basic guest info create/update only)
+  actions:
+  - name: export
+    pattern: read
+    description: Twice-daily bulk export of historical reservation and guest data via the Data Exports
+      API.
+  - name: upsert
+    pattern: write
+    description: Create or update basic guest information via the Guest Profile Ingest API. Reservation
+      data cannot be modified via API.
+  - name: subscribe
+    pattern: event
+    description: Receive real-time reservation updates for all locations in a business group via the Reservation
+      Webhook.
+  schemas:
+    reservation:
+    - tockBusiness
+    - tockDiscount
+    - tockGetReservationResponse
+    - tockGiftCard
+    - tockKeyValue
+    - tockLoyaltyProgram
+    - tockNote
+    - tockPatron
+    - tockPayout
+    - tockPurchasedCustomCharge
+    - tockPurchasedExperience
+    - tockPurchasedFee
+    - tockPurchasedOption
+    - tockQuestion
+    - tockRefund
+    - tockReservation
+    - tockSeatingOption
+    - tockTable
+    - tockTockPayment
+    - tockVisitFeedback
+    - tockVisitTag
+    guest-profile:
+    - tockAddress
+    - tockAuditedNote
+    - tockBusiness
+    - tockBusinessGroupGuestProfile
+    - tockBusinessGroupSpend
+    - tockBusinessGuestProfile
+    - tockBusinessSpend
+    - tockDay
+    - tockExternalIntegrationAttribute
+    - tockGetGuestResponse
+    - tockGuestProfile
+    - tockImportedGuestProfile
+    - tockLink
+    - tockPatron
+    - tockPhone
+  enums:
+    reservation:
+    - name: tockDiscountDiscountType
+      values:
+      - CREDIT
+      - SUBTOTAL_COMP
+      - POST_TOTAL_ADMIN_COMP
+      - POST_TOTAL_REFUND
+    - name: tockExperienceVariety
+      values:
+      - RESERVATION
+      - PREPAID
+      - DEPOSIT
+      - TABLESIDE
+      - PICKUP
+      - DELIVERY
+      - EVENT
+    - name: tockGiftCardProviderType
+      values:
+      - TCC
+      - STUB
+      - PAYTRONIX
+    - name: tockLoyaltyProgramProviderType
+      values:
+      - PAYTRONIX
+      - ANNEXCLOUD
+    - name: tockNoteNoteType
+      values:
+      - BOOKING_GENERAL_NOTE
+      - BOOKING_DIETARY_NOTE
+      - GUEST_PROVIDED_NOTE
+    - name: tockPartyState
+      values:
+      - EXPECTED
+      - ARRIVED
+      - SEATED
+      - LEFT
+      - NO_SHOW
+      - CANCELLED
+      - AWAITING_RESPONSE
+      - CONFIRMED_VIA_TEXT
+      - CONFIRMED_VIA_EMAIL
+      - PARTIALLY_ARRIVED
+      - PARTIALLY_SEATED
+      - FINISHED
+    - name: tockPaymentType
+      values:
+      - NONE
+      - CREDIT_CARD
+      - CHASE_PAY
+      - CHASE_ULTIMATE_REWARDS
+      - TOCK_GIFT_CARD
+      - PAY_ON_SITE
+    - name: tockRating
+      values:
+      - BAD
+      - NEUTRAL
+      - GOOD
+    - name: tockRatingType
+      values:
+      - THREE_POINT_EMOTICON
+      - FIVE_POINT_STAR
+    - name: tockRefundRefundStatus
+      values:
+      - COMPLETE
+      - DEFERRED
+      - ERROR
+    guest-profile:
+    - name: tockDayType
+      values:
+      - BIRTHDAY
+      - OTHER_BIRTHDAY
+      - ANNIVERSARY
+      - PARTNER_BIRTHDAY
+    - name: tockLinkType
+      values:
+      - IMAGE
+      - TWITTER
+      - FACEBOOK
+      - LINKEDIN
+      - INSTAGRAM
+      - IMAGE_BACKUP
+    - name: tockNoteType
+      values:
+      - GENERAL
+      - DIETARY
+    - name: tockOptInSource
+      values:
+      - PURCHASE
+      - WAITLIST
+      - NEWSLETTER
+      - IMPORTED
+      - NO_OPT_IN
+      - OPTED_OUT
+    - name: tockPhoneType
+      values:
+      - MOBILE
+      - HOME
+      - WORK
+      - PAGER
+      - FAX
+      - HOTEL
+      - OTHER
+  authentication:
+    scheme: API Key
+    location: Authorization header
+    provisioning: Request from integrate@tockhq.com by a Tock Dashboard Account Owner
+    eligibility: Premium and Premium Unlimited plans
+notes: No public REST path catalog or Naftiko capability set is published; capability and cross-reference
+  dimensions are intentionally omitted. Tock is owned by American Express (since June 2024).
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

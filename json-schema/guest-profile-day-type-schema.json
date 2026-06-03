@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/guest-profile-day-type-schema.json",
+  "title": "tockDayType",
+  "description": "tockDayType schema from Tock Guest Model",
+  "type": "string",
+  "enum": [
+    "BIRTHDAY",
+    "OTHER_BIRTHDAY",
+    "ANNIVERSARY",
+    "PARTNER_BIRTHDAY"
+  ]
+}

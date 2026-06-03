@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-note-schema.json",
+  "title": "tockNote",
+  "description": "tockNote schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "noteType": {
+      "$ref": "reservation-note-note-type-schema.json",
+      "description": "The type of note being described by this object."
+    },
+    "text": {
+      "type": "string",
+      "description": "The full text of the note."
+    }
+  }
+}

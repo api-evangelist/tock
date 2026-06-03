@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-question-schema.json",
+  "title": "tockQuestion",
+  "description": "tockQuestion schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The short name of this question assigned in the Tock Dashboard."
+    },
+    "response": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "All responses to the question. If the guest was presented with checkboxes to answer the question there may be multiple responses listed through this field."
+    }
+  }
+}

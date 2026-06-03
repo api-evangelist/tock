@@ -1,0 +1,17 @@
+{
+  "description": "Celebrating an anniversary; window table preferred.",
+  "amountCents": 2500,
+  "discountType": {},
+  "giftCard": {
+    "giftCardProvider": {},
+    "externalIdentifier": "example",
+    "externalPin": "example"
+  },
+  "confirmationNumber": "example",
+  "promoCode": "example",
+  "ticketTypePromoCodeId": "158375",
+  "loyaltyProgram": {
+    "providerType": {},
+    "accountId": "789973"
+  }
+}

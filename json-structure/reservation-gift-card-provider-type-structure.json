@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-gift-card-provider-type-structure.json",
+  "name": "tockGiftCardProviderType",
+  "description": "tockGiftCardProviderType schema from Tock Reservation Model",
+  "type": "string",
+  "enum": [
+    "TCC",
+    "STUB",
+    "PAYTRONIX"
+  ]
+}

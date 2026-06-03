@@ -1,0 +1,30 @@
+{
+  "note": [
+    {
+      "note": "Celebrating an anniversary; window table preferred.",
+      "lastUpdatedBy": {
+        "id": "600735",
+        "email": "guest@example.com",
+        "firstName": "Jordan",
+        "lastName": "Rivera",
+        "phone": "3125550142",
+        "phoneCountryCode": "US",
+        "zipCode": "60607",
+        "imageUrl": "https://www.exploretock.com/example",
+        "isoCountryCode": "US",
+        "loyaltyProgramCardNumber": "example",
+        "loyaltyProgramAccountId": "963837"
+      },
+      "lastUpdatedAtTimestampMs": "example",
+      "previousVersionId": "912551",
+      "noteType": {}
+    }
+  ],
+  "tag": [
+    "VIP"
+  ],
+  "spend": {
+    "totalSpendCents": "example",
+    "spendInLastYearCents": "example"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/guest-profile-imported-guest-profile-structure.json",
+  "name": "tockImportedGuestProfile",
+  "description": "tockImportedGuestProfile schema from Tock Guest Model",
+  "type": "object",
+  "properties": {
+    "link": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "guest-profile-link-schema.json"
+      }
+    }
+  }
+}

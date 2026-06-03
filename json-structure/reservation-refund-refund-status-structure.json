@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-refund-refund-status-structure.json",
+  "name": "tockRefundRefundStatus",
+  "description": "tockRefundRefundStatus schema from Tock Reservation Model",
+  "type": "string",
+  "enum": [
+    "COMPLETE",
+    "DEFERRED",
+    "ERROR"
+  ]
+}

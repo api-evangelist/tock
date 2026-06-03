@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/guest-profile-audited-note-schema.json",
+  "title": "tockAuditedNote",
+  "description": "tockAuditedNote schema from Tock Guest Model",
+  "type": "object",
+  "properties": {
+    "note": {
+      "type": "string",
+      "description": "The text of the note."
+    },
+    "lastUpdatedBy": {
+      "$ref": "guest-profile-patron-schema.json",
+      "description": "The account in Tock that made the last update to this note, whether that be the guest or someone using the Tock Dashboard."
+    },
+    "lastUpdatedAtTimestampMs": {
+      "type": "string",
+      "format": "uint64",
+      "description": "The timestamp when the note was created or updated, in milliseconds since the Unix Epoch."
+    },
+    "previousVersionId": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A unique identifier for the update or creation of the note. Used internally by Tock."
+    },
+    "noteType": {
+      "$ref": "guest-profile-note-type-schema.json",
+      "description": "The type of note this represents."
+    }
+  }
+}

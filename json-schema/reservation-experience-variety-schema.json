@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-experience-variety-schema.json",
+  "title": "tockExperienceVariety",
+  "description": "tockExperienceVariety schema from Tock Reservation Model",
+  "type": "string",
+  "enum": [
+    "RESERVATION",
+    "PREPAID",
+    "DEPOSIT",
+    "TABLESIDE",
+    "PICKUP",
+    "DELIVERY",
+    "EVENT"
+  ]
+}

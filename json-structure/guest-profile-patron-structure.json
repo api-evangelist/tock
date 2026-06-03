@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/guest-profile-patron-structure.json",
+  "name": "tockPatron",
+  "description": "tockPatron schema from Tock Guest Model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A unique identifier assigned to the patron. Used internally by Tock."
+    },
+    "email": {
+      "type": "string",
+      "description": "The email address of the patron. No two patrons can have the same email address, but an email address is not required of all patrons."
+    },
+    "firstName": {
+      "type": "string",
+      "description": "If known, the first name of the patron."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "If known, the last name of the patron."
+    },
+    "phone": {
+      "type": "string",
+      "description": "If known, the phone number of the patron without the country code."
+    },
+    "phoneCountryCode": {
+      "type": "string",
+      "description": "If known, the country code for the patron using the prefix code and the ISO 3166-1 alpha-2 country code (e.g. \"+1 US\")."
+    },
+    "zipCode": {
+      "type": "string",
+      "description": "If known, the zip code given by the patron in their Tock profile."
+    },
+    "imageUrl": {
+      "type": "string",
+      "description": "If known, a URL to a public image of the patron."
+    },
+    "isoCountryCode": {
+      "type": "string",
+      "description": "If known, the ISO 3166-1 alpha-2 country code where the patron lives."
+    },
+    "loyaltyProgramCardNumber": {
+      "type": "string",
+      "description": "If known and if the business participates in an integrated loyalty program, this field contains the card number given to the patron by the business."
+    },
+    "loyaltyProgramAccountId": {
+      "type": "string",
+      "description": "If known and if the business participates in an integrated loyalty program, this field contains the account identifier given to the patron by the business."
+    }
+  }
+}

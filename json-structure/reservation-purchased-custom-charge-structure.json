@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-purchased-custom-charge-structure.json",
+  "name": "tockPurchasedCustomCharge",
+  "description": "tockPurchasedCustomCharge schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name given to the custom charge when created on the reservation in the Tock Dashboard."
+    },
+    "amountCents": {
+      "type": "string",
+      "format": "uint64",
+      "description": "The amount added to the total price for this custom charge."
+    }
+  }
+}

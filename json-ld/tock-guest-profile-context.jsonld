@@ -1,0 +1,300 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "tock": "https://api.exploretock.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "tockAddress": "tock:tockAddress",
+    "tockAuditedNote": "tock:tockAuditedNote",
+    "tockBusinessGroupGuestProfile": "tock:tockBusinessGroupGuestProfile",
+    "tockBusinessGroupSpend": "tock:tockBusinessGroupSpend",
+    "tockBusinessGuestProfile": "tock:tockBusinessGuestProfile",
+    "tockBusiness": "tock:tockBusiness",
+    "tockBusinessSpend": "tock:tockBusinessSpend",
+    "tockDay": "tock:tockDay",
+    "tockExternalIntegrationAttribute": "tock:tockExternalIntegrationAttribute",
+    "tockGetGuestResponse": "tock:tockGetGuestResponse",
+    "tockGuestProfile": "tock:tockGuestProfile",
+    "tockImportedGuestProfile": "tock:tockImportedGuestProfile",
+    "tockLink": "tock:tockLink",
+    "tockPatron": "tock:tockPatron",
+    "tockPhone": "tock:tockPhone",
+    "address1": {
+      "@id": "tock:address1",
+      "@type": "xsd:string"
+    },
+    "address2": {
+      "@id": "tock:address2",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "tock:city",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "tock:state",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "tock:country",
+      "@type": "xsd:string"
+    },
+    "zipCode": {
+      "@id": "tock:zipCode",
+      "@type": "xsd:string"
+    },
+    "note": {
+      "@id": "tock:note",
+      "@type": "xsd:string"
+    },
+    "lastUpdatedBy": {
+      "@id": "tock:lastUpdatedBy",
+      "@type": "@id"
+    },
+    "lastUpdatedAtTimestampMs": {
+      "@id": "tock:lastUpdatedAtTimestampMs",
+      "@type": "xsd:string"
+    },
+    "previousVersionId": {
+      "@id": "tock:previousVersionId",
+      "@type": "xsd:string"
+    },
+    "noteType": {
+      "@id": "tock:noteType",
+      "@type": "@id"
+    },
+    "tag": {
+      "@id": "tock:tag",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "spend": {
+      "@id": "tock:spend",
+      "@type": "@id"
+    },
+    "totalSpendCents": {
+      "@id": "tock:totalSpendCents",
+      "@type": "xsd:string"
+    },
+    "spendInLastYearCents": {
+      "@id": "tock:spendInLastYearCents",
+      "@type": "xsd:string"
+    },
+    "business": {
+      "@id": "tock:business",
+      "@type": "@id"
+    },
+    "id": {
+      "@id": "tock:id",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "domainName": {
+      "@id": "tock:domainName",
+      "@type": "xsd:string"
+    },
+    "locale": {
+      "@id": "tock:locale",
+      "@type": "xsd:string"
+    },
+    "currencyCode": {
+      "@id": "tock:currencyCode",
+      "@type": "xsd:string"
+    },
+    "timeZone": {
+      "@id": "tock:timeZone",
+      "@type": "xsd:string"
+    },
+    "averageSpendPerVisitCents": {
+      "@id": "tock:averageSpendPerVisitCents",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "tock:type",
+      "@type": "@id"
+    },
+    "day": {
+      "@id": "tock:day",
+      "@type": "xsd:integer"
+    },
+    "month": {
+      "@id": "tock:month",
+      "@type": "xsd:integer"
+    },
+    "year": {
+      "@id": "tock:year",
+      "@type": "xsd:integer"
+    },
+    "businessId": {
+      "@id": "tock:businessId",
+      "@type": "xsd:string"
+    },
+    "patronId": {
+      "@id": "tock:patronId",
+      "@type": "xsd:string"
+    },
+    "attribute": {
+      "@id": "tock:attribute",
+      "@type": "xsd:string"
+    },
+    "stringValue": {
+      "@id": "tock:stringValue",
+      "@type": "xsd:string"
+    },
+    "intValue": {
+      "@id": "tock:intValue",
+      "@type": "xsd:string"
+    },
+    "guest": {
+      "@id": "tock:guest",
+      "@type": "@id"
+    },
+    "patron": {
+      "@id": "tock:patron",
+      "@type": "@id"
+    },
+    "nickName": {
+      "@id": "tock:nickName",
+      "@type": "xsd:string"
+    },
+    "company": {
+      "@id": "tock:company",
+      "@type": "xsd:string"
+    },
+    "jobTitle": {
+      "@id": "tock:jobTitle",
+      "@type": "xsd:string"
+    },
+    "spouseName": {
+      "@id": "tock:spouseName",
+      "@type": "xsd:string"
+    },
+    "spouse": {
+      "@id": "tock:spouse",
+      "@type": "@id"
+    },
+    "address": {
+      "@id": "tock:address",
+      "@type": "@id"
+    },
+    "phone": {
+      "@id": "tock:phone",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "link": {
+      "@id": "tock:link",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "patronProfileDietaryRestriction": {
+      "@id": "tock:patronProfileDietaryRestriction",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "patronProfileHospitalityPreference": {
+      "@id": "tock:patronProfileHospitalityPreference",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "patronProfileAversions": {
+      "@id": "tock:patronProfileAversions",
+      "@type": "xsd:string"
+    },
+    "businessGroupId": {
+      "@id": "tock:businessGroupId",
+      "@type": "xsd:string"
+    },
+    "nextGuestProfileId": {
+      "@id": "tock:nextGuestProfileId",
+      "@type": "xsd:string"
+    },
+    "importedProfile": {
+      "@id": "tock:importedProfile",
+      "@type": "@id"
+    },
+    "businessGuestProfile": {
+      "@id": "tock:businessGuestProfile",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "businessGroupGuestProfile": {
+      "@id": "tock:businessGroupGuestProfile",
+      "@type": "@id"
+    },
+    "canEdit": {
+      "@id": "tock:canEdit",
+      "@type": "xsd:boolean"
+    },
+    "isArchived": {
+      "@id": "tock:isArchived",
+      "@type": "xsd:boolean"
+    },
+    "updatedBy": {
+      "@id": "tock:updatedBy",
+      "@type": "@id"
+    },
+    "loyaltyProgramCardNumber": {
+      "@id": "tock:loyaltyProgramCardNumber",
+      "@type": "xsd:string"
+    },
+    "loyaltyProgramMembershipLevel": {
+      "@id": "tock:loyaltyProgramMembershipLevel",
+      "@type": "xsd:string"
+    },
+    "loyaltyProgramAccountId": {
+      "@id": "tock:loyaltyProgramAccountId",
+      "@type": "xsd:string"
+    },
+    "optInSource": {
+      "@id": "tock:optInSource",
+      "@type": "@id"
+    },
+    "optIn": {
+      "@id": "tock:optIn",
+      "@type": "xsd:boolean"
+    },
+    "versionId": {
+      "@id": "tock:versionId",
+      "@type": "xsd:string"
+    },
+    "createdAtTimestamp": {
+      "@id": "tock:createdAtTimestamp",
+      "@type": "xsd:string"
+    },
+    "updatedAtTimestamp": {
+      "@id": "tock:updatedAtTimestamp",
+      "@type": "xsd:string"
+    },
+    "isTockVerified": {
+      "@id": "tock:isTockVerified",
+      "@type": "xsd:boolean"
+    },
+    "dateOptedIn": {
+      "@id": "tock:dateOptedIn",
+      "@type": "xsd:string"
+    },
+    "email": "schema:email",
+    "firstName": {
+      "@id": "tock:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "tock:lastName",
+      "@type": "xsd:string"
+    },
+    "phoneCountryCode": {
+      "@id": "tock:phoneCountryCode",
+      "@type": "xsd:string"
+    },
+    "imageUrl": {
+      "@id": "tock:imageUrl",
+      "@type": "xsd:string"
+    },
+    "isoCountryCode": {
+      "@id": "tock:isoCountryCode",
+      "@type": "xsd:string"
+    }
+  }
+}

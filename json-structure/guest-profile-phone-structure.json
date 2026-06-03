@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/guest-profile-phone-structure.json",
+  "name": "tockPhone",
+  "description": "tockPhone schema from Tock Guest Model",
+  "type": "object",
+  "properties": {
+    "type": {
+      "$ref": "guest-profile-phone-type-schema.json",
+      "description": "The use of this phone as specified by the guest."
+    },
+    "phone": {
+      "type": "string",
+      "description": "The text of the phone number without the phone country code."
+    },
+    "phoneCountryCode": {
+      "type": "string",
+      "description": "If known, the country code for the phone number that includes both the numerical and ISO country codes (e.g. \"+1 US\")."
+    }
+  }
+}

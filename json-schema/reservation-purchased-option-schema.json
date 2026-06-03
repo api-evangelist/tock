@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-purchased-option-schema.json",
+  "title": "tockPurchasedOption",
+  "description": "tockPurchasedOption schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A unique identifier for the option. Used internally by Tock."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name assigned in the Tock Dashboard to this optional item."
+    },
+    "amountCents": {
+      "type": "string",
+      "format": "uint64",
+      "description": "The amount added to the total price for just this one option purchased along with the experience."
+    },
+    "posSku": {
+      "type": "string",
+      "description": "If assigned by the business from the Tock Dashboard, this field will be the SKU denoting the option."
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "reservation": {
+    "id": "121844",
+    "business": {
+      "id": "983616",
+      "name": "Tock Restaurant Group",
+      "domainName": "Tock Restaurant Group",
+      "locale": "en-US",
+      "currencyCode": "USD",
+      "timeZone": "America/Chicago"
+    },
+    "dateTime": "19:30",
+    "partySize": 4,
+    "experience": {
+      "id": "317373",
+      "name": "Tock Restaurant Group",
+      "amountCents": "example",
+      "posSku": "EXP-TASTING-01",
+      "variety": {}
+    },
+    "option": [
+      {
+        "id": "337919",
+        "name": "Tock Restaurant Group",
+        "amountCents": "example",
+        "posSku": "EXP-TASTING-01"
+      }
+    ],
+    "fee": [
+      {
+        "id": "360467",
+        "name": "Tock Restaurant Group",
+        "amountCents": "example",
+        "posSku": "EXP-TASTING-01"
+      }
+    ],
+    "customCharge": [
+      {
+        "name": "Tock Restaurant Group",
+        "amountCents": "example"
+      }
+    ],
+    "keyValue": [
+      {
+        "attribute": "example",
+        "attributeValue": "example"
+      }
+    ],
+    "compAmountCents": 2500,
+    "subtotalCents": 19900,
+    "taxRate": 0.245,
+    "taxCents": 2500,
+    "serviceChargeRate": 0.092,
+    "serviceChargeCents": 12000,
+    "selectedGratuityRate": 0.217,
+    "gratuityCents": 19900,
+    "eventFeeRate": 0.17,
+    "eventFeeCents": 19900,
+    "customFeeRate": 0.077,
+    "customFeeCents": 12000,
+    "customFeeName": "Tock Restaurant Group",
+    "totalPriceCents": 5000,
+    "discount": [
+      {
+        "description": "Celebrating an anniversary; window table preferred.",
+        "amountCents": 19900,
+        "discountType": {},
+        "giftCard": {},
+        "confirmationNumber": "example",
+        "promoCode": "example",
+        "ticketTypePromoCodeId": "196907",
+        "loyaltyProgram": {}
+      }
+    ],
+    "netAmountPaidCents": 12000,
+    "amountDueCents": 19900,
+    "createdTimestamp": "example",
+    "lastUpdatedTimestamp": "example",
+    "serviceDateTimestamp": "19:30",
+    "transferredOut": false,
+    "transferredOutAmountCents": 12000,
+    "isCancelled": false,
+    "ownerPatron": {
+      "id": "818067",
+      "email": "guest@example.com",
+      "firstName": "Jordan",
+      "lastName": "Rivera",
+      "phone": "3125550142",
+      "phoneCountryCode": "US",
+      "zipCode": "60607",
+      "imageUrl": "https://www.exploretock.com/example",
+      "isoCountryCode": "US",
+      "loyaltyProgramCardNumber": "example",
+      "loyaltyProgramAccountId": "575254"
+    },
+    "dinerPatron": {
+      "id": "864566",
+      "email": "guest@example.com",
+      "firstName": "Jordan",
+      "lastName": "Rivera",
+      "phone": "3125550142",
+      "phoneCountryCode": "US",
+      "zipCode": "60607",
+      "imageUrl": "https://www.exploretock.com/example",
+      "isoCountryCode": "US",
+      "loyaltyProgramCardNumber": "example",
+      "loyaltyProgramAccountId": "877784"
+    },
+    "versionId": "633977",
+    "loyaltyProgramCardNumberUsed": "example",
+    "visitFeedback": [
+      {
+        "id": "885632",
+        "rating": {},
+        "message": "Celebrating an anniversary; window table preferred.",
+        "isLocked": true,
+        "createdAtEpochSec": "example",
+        "ratingType": {},
+        "ratingScore": 340
+      }
+    ],
+    "visitTag": [
+      {
+        "tag": "VIP"
+      }
+    ],
+    "payment": [
+      {
+        "id": "610586",
+        "amount": 555,
+        "payout": {},
+        "paymentType": {},
+        "processorId": "963729",
+        "processorFeeCents": 12000,
+        "tockFeeCents": 2500
+      }
+    ],
+    "refund": [
+      {
+        "id": "559528",
+        "amount": 946,
+        "isDispute": false,
+        "status": {},
+        "payout": {},
+        "processorId": "751986",
+        "processorFeeRefundedCents": 12000,
+        "tockFeeRefundedCents": 12000
+      }
+    ],
+    "partyState": {},
+    "sequenceId": 720314,
+    "confirmationCode": "TKAB12CD",
+    "serverName": "Tock Restaurant Group",
+    "walkinId": "346903",
+    "note": [
+      {
+        "noteType": {},
+        "text": "Celebrating an anniversary; window table preferred."
+      }
+    ],
+    "question": [
+      {
+        "name": "Tock Restaurant Group",
+        "response": [
+          "example"
+        ]
+      }
+    ],
+    "table": [
+      {
+        "id": "478084",
+        "name": "Tock Restaurant Group",
+        "room": "example",
+        "externalId": "617532"
+      }
+    ],
+    "seatingOption": {
+      "id": "406894",
+      "name": "Tock Restaurant Group",
+      "isOutdoors": false
+    }
+  }
+}

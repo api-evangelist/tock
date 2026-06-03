@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/guest-profile-note-type-schema.json",
+  "title": "tockNoteType",
+  "description": "tockNoteType schema from Tock Guest Model",
+  "type": "string",
+  "enum": [
+    "GENERAL",
+    "DIETARY"
+  ]
+}

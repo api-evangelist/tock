@@ -1,0 +1,158 @@
+{
+  "id": "361305",
+  "patron": {
+    "id": "639531",
+    "email": "guest@example.com",
+    "firstName": "Jordan",
+    "lastName": "Rivera",
+    "phone": "3125550142",
+    "phoneCountryCode": "US",
+    "zipCode": "60607",
+    "imageUrl": "https://www.exploretock.com/example",
+    "isoCountryCode": "US",
+    "loyaltyProgramCardNumber": "example",
+    "loyaltyProgramAccountId": "967295"
+  },
+  "nickName": "example",
+  "company": "example",
+  "jobTitle": "example",
+  "spouseName": "Tock Restaurant Group",
+  "spouse": {
+    "id": "301830",
+    "email": "guest@example.com",
+    "firstName": "Jordan",
+    "lastName": "Rivera",
+    "phone": "3125550142",
+    "phoneCountryCode": "US",
+    "zipCode": "60607",
+    "imageUrl": "https://www.exploretock.com/example",
+    "isoCountryCode": "US",
+    "loyaltyProgramCardNumber": "example",
+    "loyaltyProgramAccountId": "604665"
+  },
+  "address": {
+    "address1": "example",
+    "address2": "example",
+    "city": "example",
+    "state": "example",
+    "country": "example",
+    "zipCode": "60607"
+  },
+  "phone": [
+    {
+      "type": {},
+      "phone": "3125550142",
+      "phoneCountryCode": "US"
+    }
+  ],
+  "day": [
+    {
+      "type": {},
+      "day": 381,
+      "month": 22,
+      "year": 706
+    }
+  ],
+  "link": [
+    {
+      "type": {},
+      "link": "https://www.exploretock.com/example"
+    }
+  ],
+  "patronProfileDietaryRestriction": [
+    "example"
+  ],
+  "patronProfileHospitalityPreference": [
+    "example"
+  ],
+  "patronProfileAversions": "example",
+  "businessGroupId": "113060",
+  "nextGuestProfileId": "883312",
+  "importedProfile": {
+    "link": [
+      {
+        "type": {},
+        "link": "https://www.exploretock.com/example"
+      }
+    ]
+  },
+  "businessGuestProfile": [
+    {
+      "business": {
+        "id": "295079",
+        "name": "Tock Restaurant Group",
+        "domainName": "Tock Restaurant Group",
+        "locale": "en-US",
+        "currencyCode": "USD",
+        "timeZone": "America/Chicago"
+      },
+      "note": [
+        {}
+      ],
+      "tag": [
+        "VIP"
+      ],
+      "spend": {
+        "totalSpendCents": "example",
+        "averageSpendPerVisitCents": "example",
+        "spendInLastYearCents": "example"
+      }
+    }
+  ],
+  "businessGroupGuestProfile": {
+    "note": [
+      {
+        "note": "Celebrating an anniversary; window table preferred.",
+        "lastUpdatedBy": {},
+        "lastUpdatedAtTimestampMs": "example",
+        "previousVersionId": "724725",
+        "noteType": {}
+      }
+    ],
+    "tag": [
+      "VIP"
+    ],
+    "spend": {
+      "totalSpendCents": "example",
+      "spendInLastYearCents": "example"
+    }
+  },
+  "tag": [
+    "VIP"
+  ],
+  "attribute": [
+    {
+      "businessId": "411765",
+      "patronId": "206622",
+      "type": "example",
+      "attribute": "example",
+      "stringValue": "example",
+      "intValue": "example"
+    }
+  ],
+  "canEdit": true,
+  "isArchived": false,
+  "updatedBy": {
+    "id": "470324",
+    "email": "guest@example.com",
+    "firstName": "Jordan",
+    "lastName": "Rivera",
+    "phone": "3125550142",
+    "phoneCountryCode": "US",
+    "zipCode": "60607",
+    "imageUrl": "https://www.exploretock.com/example",
+    "isoCountryCode": "US",
+    "loyaltyProgramCardNumber": "example",
+    "loyaltyProgramAccountId": "221090"
+  },
+  "loyaltyProgramCardNumber": "example",
+  "loyaltyProgramMembershipLevel": "example",
+  "loyaltyProgramAccountId": "562903",
+  "optInSource": {},
+  "optIn": true,
+  "versionId": "531537",
+  "createdAtTimestamp": "example",
+  "updatedAtTimestamp": "example",
+  "isTockVerified": false,
+  "dateOptedIn": "example"
+}

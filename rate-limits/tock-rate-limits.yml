@@ -4,7 +4,7 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Tock
 providerId: tock
 created: '2026-05-08'
-modified: '2026-05-25'
+modified: '2026-06-03'
 reconciled: false
 tags:
 - Hospitality
@@ -14,18 +14,33 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Tock Partner API rate limits are governed by partner agreements; not publicly published.
-notes: Approved partners receive limits via partnerships team.
+description: Tock API and webhook rate limits are not publicly published. API/webhook access is
+  gated to Premium and Premium Unlimited plans; partners request an API key from integrate@tockhq.com.
+notes: API/webhook eligibility is limited to Premium and Premium Unlimited plans. The Data Exports
+  API runs on a fixed twice-daily schedule (not a per-request rate). Specific per-key request rates
+  are not documented in Tock's public API FAQ.
 sources:
 - https://www.exploretock.com/partners
+- https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
+- https://api.exploretock.com/docs/latest/reservation.html
 responseCodes:
   throttled: 429
 limits:
-- name: Default Partner
-  scope: partner
+- name: Data Exports API
+  scope: business-group
+  metric: exports
+  limit: 2 per day
+  notes: Twice-daily export of historical reservation and guest data; not a per-request rate.
+- name: Guest Profile Ingest API
+  scope: api-key
   metric: requests
   limit: not publicly documented
-  notes: Per partner agreement.
+  notes: Eligibility limited to Premium and Premium Unlimited plans.
+- name: Reservation Webhook
+  scope: business-group
+  metric: events
+  limit: event-driven
+  notes: Real-time delivery of reservation updates for all locations in the business group.
 policies:
 - name: Backoff Strategy
   description: Clients should implement exponential backoff with jitter and honor any Retry-After header.

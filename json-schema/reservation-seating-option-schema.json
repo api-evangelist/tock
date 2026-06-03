@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-seating-option-schema.json",
+  "title": "tockSeatingOption",
+  "description": "tockSeatingOption schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "int64",
+      "description": "A unique identifier for the seating option. Used internally by Tock."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name given to the seating option which is displayed within the Tock Dashboard."
+    },
+    "isOutdoors": {
+      "type": "boolean",
+      "description": "This field indicates whether or not the seating option is outdoors."
+    }
+  }
+}

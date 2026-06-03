@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-party-state-structure.json",
+  "name": "tockPartyState",
+  "description": "tockPartyState schema from Tock Reservation Model",
+  "type": "string",
+  "enum": [
+    "EXPECTED",
+    "ARRIVED",
+    "SEATED",
+    "LEFT",
+    "NO_SHOW",
+    "CANCELLED",
+    "AWAITING_RESPONSE",
+    "CONFIRMED_VIA_TEXT",
+    "CONFIRMED_VIA_EMAIL",
+    "PARTIALLY_ARRIVED",
+    "PARTIALLY_SEATED",
+    "FINISHED"
+  ]
+}

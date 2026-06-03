@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-visit-tag-structure.json",
+  "name": "tockVisitTag",
+  "description": "tockVisitTag schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "tag": {
+      "type": "string",
+      "description": "The name of the tag assigned to the reservation."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/guest-profile-business-group-spend-schema.json",
+  "title": "tockBusinessGroupSpend",
+  "description": "tockBusinessGroupSpend schema from Tock Guest Model",
+  "type": "object",
+  "properties": {
+    "totalSpendCents": {
+      "type": "string",
+      "format": "uint64",
+      "description": "Total amount in cents the guest has spent at any business in the business group."
+    },
+    "spendInLastYearCents": {
+      "type": "string",
+      "format": "uint64",
+      "description": "Total amount in cents the guest has spent at any business in the business group in the last year (12 months)."
+    }
+  }
+}

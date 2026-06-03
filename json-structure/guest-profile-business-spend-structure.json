@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/guest-profile-business-spend-structure.json",
+  "name": "tockBusinessSpend",
+  "description": "tockBusinessSpend schema from Tock Guest Model",
+  "type": "object",
+  "properties": {
+    "totalSpendCents": {
+      "type": "string",
+      "format": "uint64",
+      "description": "Total amount in cents the guest has spent at the business."
+    },
+    "averageSpendPerVisitCents": {
+      "type": "string",
+      "format": "uint64",
+      "description": "Average amount in cents the guest has spent per visit at the business."
+    },
+    "spendInLastYearCents": {
+      "type": "string",
+      "format": "uint64",
+      "description": "Total amount in cents the guest has spent at the business in the last year (12 months)."
+    }
+  }
+}

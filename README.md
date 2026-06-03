@@ -1,24 +1,69 @@
 # Tock (tock)
 
-Tock is a reservation, ticketed events, takeout, and delivery management platform for restaurants, wineries, and hospitality venues. Founded in Chicago in 2014 by Nick Kokonas, Brian Fitzpatrick, and Grant Achatz, Tock pioneered the prepaid reservation model out of Alinea Group and expanded into takeout, wine delivery, and experience ticketing. Squarespace acquired Tock for approximately $400 million in 2021 and sold it to American Express in June 2024; Tock is now an Amex-owned property. Tock does not publish a self-serve developer portal — integrations with POS, CRM, marketing, loyalty, and ticketing platforms are delivered through a contractual Partner API program managed by Tock's partnerships team.
+Tock is a reservation, ticketed events, takeout, and delivery management platform for restaurants, wineries, and hospitality venues. Founded in Chicago in 2014 by Nick Kokonas, Brian Fitzpatrick, and Grant Achatz, Tock pioneered the prepaid reservation model out of Alinea Group and expanded into takeout, wine delivery, and experience ticketing. Squarespace acquired Tock for approximately $400 million in 2021 and sold it to American Express in June 2024; Tock is now an Amex-owned property. Tock publishes API documentation and data-model (Swagger 2.0) specifications at api.exploretock.com covering its Reservation and Guest data models. Programmatic access is delivered through a Data Exports API (twice-daily reservation and guest exports), a Guest Profile Ingest API (create/update of basic guest information), and a real-time Reservation Webhook. API and webhook access is an entitlement of the Premium and Premium Unlimited plans; partners request an API key by emailing integrate@tockhq.com from a Tock Dashboard Account Owner.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/apis.yml)
 
-## Type
-- **x-type:** company
+**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
 
-## Tags
-- Hospitality, Reservations, Restaurants, Wineries, Ticketed Events, Takeout, Delivery, Experiences, Dining, American Express
+## Tags:
 
-## APIs
-- **Tock Partner API** — contractual REST API for approved POS, CRM, marketing, loyalty, ticketing, and accounting partners. No public docs, OpenAPI, or self-serve SDK; contact [exploretock.com/partners](https://www.exploretock.com/partners) for access.
+ - Hospitality, Reservations, Restaurants, Wineries, Ticketed Events, Takeout, Delivery, Experiences, Dining, American Express
 
 ## Timestamps
+
 - **Created:** 2026-05-08
-- **Modified:** 2026-05-25
+- **Modified:** 2026-06-03
+
+## APIs
+
+### Tock Reservation API
+Reservation data model and delivery surface published at api.exploretock.com. Reservation records (bookings, ticketed experiences, takeout/delivery orders, parties, pricing, payments, refunds, notes, and post-visit feedback) are delivered to approved partners through a twice-daily Data Exports API and a real-time Reservation Webhook. Tock publishes a Swagger 2.0 data-model spec for the canonical reservation object; reservation data is read-only via API (it cannot be modified programmatically). Access requires a Tock API key and a Premium or Premium Unlimited plan.
+
+**Human URL:** [https://api.exploretock.com/docs/latest/reservation.html](https://api.exploretock.com/docs/latest/reservation.html)
+
+#### Tags:
+
+ - REST, Reservations, Ticketed Events, Takeout, Delivery, Webhooks, Data Export
+
+#### Properties
+
+- [Documentation](https://api.exploretock.com/docs/latest/reservation.html)
+- [APIReference](https://api.exploretock.com/docs/latest/reservation.html)
+- [OpenAPI](openapi/tock-reservation-openapi.yml)
+- [JSONSchema](json-schema/reservation-reservation-schema.json)
+- [JSONStructure](json-structure/reservation-reservation-structure.json)
+- [JSONLD](json-ld/tock-reservation-context.jsonld)
+- [Example](examples/reservation-reservation-example.json)
+- [Authentication](https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ)
+- [Partners](https://www.exploretock.com/partners)
+
+### Tock Guest API
+Guest (CRM) data model and ingest surface published at api.exploretock.com. Guest profiles capture contact details, dietary restrictions and preferences, tags, per-business and group-level notes and spend, and loyalty program references. Profiles are read via the Data Exports API and created or updated via the Guest Profile Ingest API, which supports basic guest information only. Tock publishes a Swagger 2.0 data-model spec for the canonical guest profile object. Access requires a Tock API key and a Premium or Premium Unlimited plan.
+
+**Human URL:** [https://api.exploretock.com/docs/latest/guest_profile.html](https://api.exploretock.com/docs/latest/guest_profile.html)
+
+#### Tags:
+
+ - REST, Guests, CRM, Data Export, Ingest
+
+#### Properties
+
+- [Documentation](https://api.exploretock.com/docs/latest/guest_profile.html)
+- [APIReference](https://api.exploretock.com/docs/latest/guest_profile.html)
+- [OpenAPI](openapi/tock-guest-profile-openapi.yml)
+- [JSONSchema](json-schema/guest-profile-guest-profile-schema.json)
+- [JSONStructure](json-structure/guest-profile-guest-profile-structure.json)
+- [JSONLD](json-ld/tock-guest-profile-context.jsonld)
+- [Example](examples/guest-profile-guest-profile-example.json)
+- [Authentication](https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ)
+- [Partners](https://www.exploretock.com/partners)
 
 ## Common Properties
+
 - [Website](https://www.exploretock.com/)
+- [Documentation](https://api.exploretock.com/docs/latest/reservation.html)
+- [GitHubOrganization](https://github.com/tocktix)
 - [Partners](https://www.exploretock.com/partners)
 - [Sign Up](https://www.exploretock.com/business)
 - [Login](https://www.exploretock.com/login)
@@ -29,9 +74,10 @@ Tock is a reservation, ticketed events, takeout, and delivery management platfor
 - [Terms of Service](https://www.exploretock.com/terms)
 - [LinkedIn](https://www.linkedin.com/company/tock)
 - [X / Twitter](https://twitter.com/exploretock)
-- [Plans](plans/tock-plans-pricing.yml) - tiered restaurant SaaS + per-ticket fees; Partner API contractual (reconciled: false)
-- [RateLimits](rate-limits/tock-rate-limits.yml) - per partner agreement (reconciled: false)
+- [Plans](plans/tock-plans-pricing.yml) - tiered restaurant SaaS + per-ticket fees; API/webhook access is a Premium / Premium Unlimited entitlement (reconciled: false)
+- [RateLimits](rate-limits/tock-rate-limits.yml) - Data Exports (twice daily), Guest Ingest, and Reservation Webhook; per-key request rates not publicly documented (reconciled: false)
 - [FinOps](finops/tock-finops.yml) - FOCUS-aligned hybrid (reconciled: false)
+- [Vocabulary](vocabulary/tock-vocabulary.yaml) - operational taxonomy across the Reservation and Guest models
 
 ## Features
 - Reservations (prepaid and deposit-backed bookings)
@@ -55,6 +101,36 @@ Tock is a reservation, ticketed events, takeout, and delivery management platfor
 
 ## Solutions
 - Restaurants, Wineries, Hotels and Resorts, Bars and Lounges
+
+## Artifacts
+
+Machine-readable API specifications organized by format.
+
+### OpenAPI
+
+- [Tock Reservation Model](openapi/tock-reservation-openapi.yml) — converted from Tock's published Swagger 2.0 model spec (schema-only; no public REST path catalog)
+- [Tock Guest Model](openapi/tock-guest-profile-openapi.yml) — converted from Tock's published Swagger 2.0 model spec (schema-only; no public REST path catalog)
+
+### JSON Schema
+
+- 51 JSON Schema files in [json-schema/](json-schema/) extracted from the Reservation and Guest data models
+
+### JSON Structure
+
+- 51 JSON Structure files in [json-structure/](json-structure/) converted from the JSON Schema definitions
+
+### JSON-LD
+
+- [Tock Reservation Context](json-ld/tock-reservation-context.jsonld)
+- [Tock Guest Profile Context](json-ld/tock-guest-profile-context.jsonld)
+
+### Examples
+
+- 51 example payloads in [examples/](examples/) generated from the JSON Schema definitions
+
+## Vocabulary
+
+- [Tock Vocabulary](vocabulary/tock-vocabulary.yaml) — operational taxonomy mapping 2 resources, 3 actions, 36 schemas, and 15 enum groups across the published Reservation and Guest data models (no Naftiko capability dimension; Tock does not publish a REST path catalog)
 
 ## Maintainers
 **FN:** Kin Lane

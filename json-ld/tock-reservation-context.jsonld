@@ -1,0 +1,458 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "tock": "https://api.exploretock.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "tockBusiness": "tock:tockBusiness",
+    "tockDiscount": "tock:tockDiscount",
+    "tockGetReservationResponse": "tock:tockGetReservationResponse",
+    "tockGiftCard": "tock:tockGiftCard",
+    "tockKeyValue": "tock:tockKeyValue",
+    "tockLoyaltyProgram": "tock:tockLoyaltyProgram",
+    "tockNote": "tock:tockNote",
+    "tockPatron": "tock:tockPatron",
+    "tockPayout": "tock:tockPayout",
+    "tockPurchasedCustomCharge": "tock:tockPurchasedCustomCharge",
+    "tockPurchasedExperience": "tock:tockPurchasedExperience",
+    "tockPurchasedFee": "tock:tockPurchasedFee",
+    "tockPurchasedOption": "tock:tockPurchasedOption",
+    "tockQuestion": "tock:tockQuestion",
+    "tockRefund": "tock:tockRefund",
+    "tockReservation": "tock:tockReservation",
+    "tockSeatingOption": "tock:tockSeatingOption",
+    "tockTable": "tock:tockTable",
+    "tockTockPayment": "tock:tockTockPayment",
+    "tockVisitFeedback": "tock:tockVisitFeedback",
+    "tockVisitTag": "tock:tockVisitTag",
+    "id": {
+      "@id": "tock:id",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "domainName": {
+      "@id": "tock:domainName",
+      "@type": "xsd:string"
+    },
+    "locale": {
+      "@id": "tock:locale",
+      "@type": "xsd:string"
+    },
+    "currencyCode": {
+      "@id": "tock:currencyCode",
+      "@type": "xsd:string"
+    },
+    "timeZone": {
+      "@id": "tock:timeZone",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "amountCents": {
+      "@id": "tock:amountCents",
+      "@type": "xsd:integer"
+    },
+    "discountType": {
+      "@id": "tock:discountType",
+      "@type": "@id"
+    },
+    "giftCard": {
+      "@id": "tock:giftCard",
+      "@type": "@id"
+    },
+    "confirmationNumber": {
+      "@id": "tock:confirmationNumber",
+      "@type": "xsd:string"
+    },
+    "promoCode": {
+      "@id": "tock:promoCode",
+      "@type": "xsd:string"
+    },
+    "ticketTypePromoCodeId": {
+      "@id": "tock:ticketTypePromoCodeId",
+      "@type": "xsd:string"
+    },
+    "loyaltyProgram": {
+      "@id": "tock:loyaltyProgram",
+      "@type": "@id"
+    },
+    "reservation": {
+      "@id": "tock:reservation",
+      "@type": "@id"
+    },
+    "giftCardProvider": {
+      "@id": "tock:giftCardProvider",
+      "@type": "@id"
+    },
+    "externalIdentifier": {
+      "@id": "tock:externalIdentifier",
+      "@type": "xsd:string"
+    },
+    "externalPin": {
+      "@id": "tock:externalPin",
+      "@type": "xsd:string"
+    },
+    "attribute": {
+      "@id": "tock:attribute",
+      "@type": "xsd:string"
+    },
+    "attributeValue": {
+      "@id": "tock:attributeValue",
+      "@type": "xsd:string"
+    },
+    "providerType": {
+      "@id": "tock:providerType",
+      "@type": "@id"
+    },
+    "accountId": {
+      "@id": "tock:accountId",
+      "@type": "xsd:string"
+    },
+    "noteType": {
+      "@id": "tock:noteType",
+      "@type": "@id"
+    },
+    "text": {
+      "@id": "tock:text",
+      "@type": "xsd:string"
+    },
+    "email": "schema:email",
+    "firstName": {
+      "@id": "tock:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "tock:lastName",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "tock:phone",
+      "@type": "xsd:string"
+    },
+    "phoneCountryCode": {
+      "@id": "tock:phoneCountryCode",
+      "@type": "xsd:string"
+    },
+    "zipCode": {
+      "@id": "tock:zipCode",
+      "@type": "xsd:string"
+    },
+    "imageUrl": {
+      "@id": "tock:imageUrl",
+      "@type": "xsd:string"
+    },
+    "isoCountryCode": {
+      "@id": "tock:isoCountryCode",
+      "@type": "xsd:string"
+    },
+    "loyaltyProgramCardNumber": {
+      "@id": "tock:loyaltyProgramCardNumber",
+      "@type": "xsd:string"
+    },
+    "loyaltyProgramAccountId": {
+      "@id": "tock:loyaltyProgramAccountId",
+      "@type": "xsd:string"
+    },
+    "arrivalDate": {
+      "@id": "tock:arrivalDate",
+      "@type": "xsd:string"
+    },
+    "posSku": {
+      "@id": "tock:posSku",
+      "@type": "xsd:string"
+    },
+    "variety": {
+      "@id": "tock:variety",
+      "@type": "@id"
+    },
+    "response": {
+      "@id": "tock:response",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "amount": {
+      "@id": "tock:amount",
+      "@type": "xsd:integer"
+    },
+    "isDispute": {
+      "@id": "tock:isDispute",
+      "@type": "xsd:boolean"
+    },
+    "status": {
+      "@id": "tock:status",
+      "@type": "@id"
+    },
+    "payout": {
+      "@id": "tock:payout",
+      "@type": "@id"
+    },
+    "processorId": {
+      "@id": "tock:processorId",
+      "@type": "xsd:string"
+    },
+    "processorFeeRefundedCents": {
+      "@id": "tock:processorFeeRefundedCents",
+      "@type": "xsd:integer"
+    },
+    "tockFeeRefundedCents": {
+      "@id": "tock:tockFeeRefundedCents",
+      "@type": "xsd:integer"
+    },
+    "business": {
+      "@id": "tock:business",
+      "@type": "@id"
+    },
+    "dateTime": {
+      "@id": "tock:dateTime",
+      "@type": "xsd:string"
+    },
+    "partySize": {
+      "@id": "tock:partySize",
+      "@type": "xsd:integer"
+    },
+    "experience": {
+      "@id": "tock:experience",
+      "@type": "@id"
+    },
+    "option": {
+      "@id": "tock:option",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "fee": {
+      "@id": "tock:fee",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "customCharge": {
+      "@id": "tock:customCharge",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "keyValue": {
+      "@id": "tock:keyValue",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "compAmountCents": {
+      "@id": "tock:compAmountCents",
+      "@type": "xsd:integer"
+    },
+    "subtotalCents": {
+      "@id": "tock:subtotalCents",
+      "@type": "xsd:integer"
+    },
+    "taxRate": {
+      "@id": "tock:taxRate",
+      "@type": "xsd:float"
+    },
+    "taxCents": {
+      "@id": "tock:taxCents",
+      "@type": "xsd:integer"
+    },
+    "serviceChargeRate": {
+      "@id": "tock:serviceChargeRate",
+      "@type": "xsd:float"
+    },
+    "serviceChargeCents": {
+      "@id": "tock:serviceChargeCents",
+      "@type": "xsd:integer"
+    },
+    "selectedGratuityRate": {
+      "@id": "tock:selectedGratuityRate",
+      "@type": "xsd:float"
+    },
+    "gratuityCents": {
+      "@id": "tock:gratuityCents",
+      "@type": "xsd:integer"
+    },
+    "eventFeeRate": {
+      "@id": "tock:eventFeeRate",
+      "@type": "xsd:float"
+    },
+    "eventFeeCents": {
+      "@id": "tock:eventFeeCents",
+      "@type": "xsd:integer"
+    },
+    "customFeeRate": {
+      "@id": "tock:customFeeRate",
+      "@type": "xsd:float"
+    },
+    "customFeeCents": {
+      "@id": "tock:customFeeCents",
+      "@type": "xsd:integer"
+    },
+    "customFeeName": {
+      "@id": "tock:customFeeName",
+      "@type": "xsd:string"
+    },
+    "totalPriceCents": {
+      "@id": "tock:totalPriceCents",
+      "@type": "xsd:integer"
+    },
+    "discount": {
+      "@id": "tock:discount",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "netAmountPaidCents": {
+      "@id": "tock:netAmountPaidCents",
+      "@type": "xsd:integer"
+    },
+    "amountDueCents": {
+      "@id": "tock:amountDueCents",
+      "@type": "xsd:integer"
+    },
+    "createdTimestamp": {
+      "@id": "tock:createdTimestamp",
+      "@type": "xsd:string"
+    },
+    "lastUpdatedTimestamp": {
+      "@id": "tock:lastUpdatedTimestamp",
+      "@type": "xsd:string"
+    },
+    "serviceDateTimestamp": {
+      "@id": "tock:serviceDateTimestamp",
+      "@type": "xsd:string"
+    },
+    "transferredOut": {
+      "@id": "tock:transferredOut",
+      "@type": "xsd:boolean"
+    },
+    "transferredOutAmountCents": {
+      "@id": "tock:transferredOutAmountCents",
+      "@type": "xsd:integer"
+    },
+    "isCancelled": {
+      "@id": "tock:isCancelled",
+      "@type": "xsd:boolean"
+    },
+    "ownerPatron": {
+      "@id": "tock:ownerPatron",
+      "@type": "@id"
+    },
+    "dinerPatron": {
+      "@id": "tock:dinerPatron",
+      "@type": "@id"
+    },
+    "versionId": {
+      "@id": "tock:versionId",
+      "@type": "xsd:string"
+    },
+    "loyaltyProgramCardNumberUsed": {
+      "@id": "tock:loyaltyProgramCardNumberUsed",
+      "@type": "xsd:string"
+    },
+    "visitFeedback": {
+      "@id": "tock:visitFeedback",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "visitTag": {
+      "@id": "tock:visitTag",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "payment": {
+      "@id": "tock:payment",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "refund": {
+      "@id": "tock:refund",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "partyState": {
+      "@id": "tock:partyState",
+      "@type": "@id"
+    },
+    "sequenceId": {
+      "@id": "tock:sequenceId",
+      "@type": "xsd:integer"
+    },
+    "confirmationCode": {
+      "@id": "tock:confirmationCode",
+      "@type": "xsd:string"
+    },
+    "serverName": {
+      "@id": "tock:serverName",
+      "@type": "xsd:string"
+    },
+    "walkinId": {
+      "@id": "tock:walkinId",
+      "@type": "xsd:string"
+    },
+    "note": {
+      "@id": "tock:note",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "question": {
+      "@id": "tock:question",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "table": {
+      "@id": "tock:table",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "seatingOption": {
+      "@id": "tock:seatingOption",
+      "@type": "@id"
+    },
+    "isOutdoors": {
+      "@id": "tock:isOutdoors",
+      "@type": "xsd:boolean"
+    },
+    "room": {
+      "@id": "tock:room",
+      "@type": "xsd:string"
+    },
+    "externalId": {
+      "@id": "tock:externalId",
+      "@type": "xsd:string"
+    },
+    "paymentType": {
+      "@id": "tock:paymentType",
+      "@type": "@id"
+    },
+    "processorFeeCents": {
+      "@id": "tock:processorFeeCents",
+      "@type": "xsd:integer"
+    },
+    "tockFeeCents": {
+      "@id": "tock:tockFeeCents",
+      "@type": "xsd:integer"
+    },
+    "rating": {
+      "@id": "tock:rating",
+      "@type": "@id"
+    },
+    "message": {
+      "@id": "tock:message",
+      "@type": "xsd:string"
+    },
+    "isLocked": {
+      "@id": "tock:isLocked",
+      "@type": "xsd:boolean"
+    },
+    "createdAtEpochSec": {
+      "@id": "tock:createdAtEpochSec",
+      "@type": "xsd:string"
+    },
+    "ratingType": {
+      "@id": "tock:ratingType",
+      "@type": "@id"
+    },
+    "ratingScore": {
+      "@id": "tock:ratingScore",
+      "@type": "xsd:integer"
+    },
+    "tag": {
+      "@id": "tock:tag",
+      "@type": "xsd:string"
+    }
+  }
+}

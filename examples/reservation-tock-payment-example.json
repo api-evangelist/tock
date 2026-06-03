@@ -1,0 +1,12 @@
+{
+  "id": "793678",
+  "amount": 193,
+  "payout": {
+    "id": "408088",
+    "arrivalDate": "example"
+  },
+  "paymentType": {},
+  "processorId": "339981",
+  "processorFeeCents": 2500,
+  "tockFeeCents": 5000
+}

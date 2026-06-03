@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-discount-discount-type-structure.json",
+  "name": "tockDiscountDiscountType",
+  "description": "tockDiscountDiscountType schema from Tock Reservation Model",
+  "type": "string",
+  "enum": [
+    "CREDIT",
+    "SUBTOTAL_COMP",
+    "POST_TOTAL_ADMIN_COMP",
+    "POST_TOTAL_REFUND"
+  ]
+}

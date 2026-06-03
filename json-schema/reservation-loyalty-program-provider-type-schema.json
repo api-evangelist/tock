@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-loyalty-program-provider-type-schema.json",
+  "title": "tockLoyaltyProgramProviderType",
+  "description": "tockLoyaltyProgramProviderType schema from Tock Reservation Model",
+  "type": "string",
+  "enum": [
+    "PAYTRONIX",
+    "ANNEXCLOUD"
+  ]
+}

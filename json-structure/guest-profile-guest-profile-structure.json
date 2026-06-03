@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/guest-profile-guest-profile-structure.json",
+  "name": "tockGuestProfile",
+  "description": "tockGuestProfile schema from Tock Guest Model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A unique identifier for the guest. This identifier can change with edits to the guest by the business and should not be stored. For identifiers that do not change with edits, see Patron.id instead."
+    },
+    "patron": {
+      "$ref": "guest-profile-patron-schema.json",
+      "description": "The Tock account that corresponds to this guest profile. This will be a subset of the full guest profile and the contents are owned and only changeable by the logged-in user."
+    },
+    "nickName": {
+      "type": "string",
+      "description": "A nickname given to this user given by the business."
+    },
+    "company": {
+      "type": "string",
+      "description": "If known, the company where this guest is employed."
+    },
+    "jobTitle": {
+      "type": "string",
+      "description": "If known, the job title at the company where this guest is employed."
+    },
+    "spouseName": {
+      "type": "string",
+      "description": "If known, the name of the guest's spouse."
+    },
+    "spouse": {
+      "$ref": "guest-profile-patron-schema.json",
+      "description": "If known, the connected Tock account for this guest's spouse linked to this guest by the business or guest."
+    },
+    "address": {
+      "$ref": "guest-profile-address-schema.json",
+      "description": "If known, the address assigned to this guest."
+    },
+    "phone": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "guest-profile-phone-schema.json"
+      },
+      "description": "If known, a list of phone numbers for contacting the guest."
+    },
+    "day": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "guest-profile-day-schema.json"
+      },
+      "description": "If known, a list of special days that have been recorded for this guest."
+    },
+    "link": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "guest-profile-link-schema.json"
+      },
+      "description": "External links to public information about this guest found on the Internet."
+    },
+    "patronProfileDietaryRestriction": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Notes that the guest has given to all businesses on Tock indicating their dietary restrictions. This information cannot be edited by the business."
+    },
+    "patronProfileHospitalityPreference": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Notes the guest has given to all businesses on Tock indicating preferences that the guest would like the business to know about. This information cannot be edited by the business."
+    },
+    "patronProfileAversions": {
+      "type": "string",
+      "description": "Notes the guest has given to all businesses on Tock indicating aversions that the business should avoid. This information cannot be edited by the business."
+    },
+    "businessGroupId": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A unique identifier for the business group. Used internally by Tock."
+    },
+    "nextGuestProfileId": {
+      "type": "string",
+      "format": "uint64",
+      "description": "If this guest profile has been edited in the past, this will be the identifier for the guest profile that contains the edit. If this value is not set, this guest profile information is the most up-to-date for the business group."
+    },
+    "importedProfile": {
+      "$ref": "guest-profile-imported-guest-profile-schema.json"
+    },
+    "businessGuestProfile": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "guest-profile-business-guest-profile-schema.json"
+      },
+      "description": "Some businesses in the same business group prefer to have their own notes and tags which are not automatically shared with the others in the group. This list contains the notes and tags for each business in the business group for this guest."
+    },
+    "businessGroupGuestProfile": {
+      "$ref": "guest-profile-business-group-guest-profile-schema.json",
+      "description": "The notes and tags for the guest that are shared with all businesses in a business group."
+    },
+    "tag": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "If tags are shared amongst all businesses in the business group, this will be the tags applied to the guest for the business group."
+    },
+    "attribute": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "guest-profile-external-integration-attribute-schema.json"
+      },
+      "description": "If the business is synchronizing guest information from another system other than Tock, this field will contain the unique identifiers and club memberships for this guest in the external system."
+    },
+    "canEdit": {
+      "type": "boolean",
+      "description": "If the guest has never logged in or verified their Tock account, this value will be set to true."
+    },
+    "isArchived": {
+      "type": "boolean",
+      "description": "If there exists newer changes to this guest (when nextGuestProfileId is present), this value will be set to true."
+    },
+    "updatedBy": {
+      "$ref": "guest-profile-patron-schema.json",
+      "description": "The user who made the last update to this guest profile."
+    },
+    "loyaltyProgramCardNumber": {
+      "type": "string",
+      "description": "If the guest has made a successful login to a loyalty program integrated and enabled in the Tock Dashboard, this will be the card number for the guest's account in the loyalty program."
+    },
+    "loyaltyProgramMembershipLevel": {
+      "type": "string",
+      "description": "If the guest has made a successful login to a loyalty program integrated and enabled in the Tock Dashboard and the guest has a membership level specified with their account, this will be the name of the membership level."
+    },
+    "loyaltyProgramAccountId": {
+      "type": "string",
+      "description": "If the guest has an account tied to a loyalty program integrated and enabled in the Tock Dashboard this value will be the unique account identifier within the loyalty program."
+    },
+    "optInSource": {
+      "$ref": "guest-profile-opt-in-source-schema.json",
+      "description": "Whether or not the guest has opted into email marketing from the business or Tock, the value of this field indicates the place where the guest made their choice."
+    },
+    "optIn": {
+      "type": "boolean",
+      "description": "Whether the guest has explicitly opted into email marketing from the business or Tock."
+    },
+    "versionId": {
+      "type": "string",
+      "format": "uint64",
+      "description": "This value indicates the number of edits that have been made to this guest's profile for this business in Tock."
+    },
+    "createdAtTimestamp": {
+      "type": "string",
+      "format": "uint64",
+      "description": "The timestamp for when the guest profile was created, in milliseconds since the Unix Epoch."
+    },
+    "updatedAtTimestamp": {
+      "type": "string",
+      "format": "uint64",
+      "description": "The timestamp for this edit to the guest profile, in milliseconds since the Unix Epoch. If this is the first edit, it will be the same as createdAtTimestamp."
+    },
+    "isTockVerified": {
+      "type": "boolean"
+    },
+    "dateOptedIn": {
+      "type": "string",
+      "description": "The date and time when the guest opted in/out of email marketing from the business."
+    }
+  }
+}

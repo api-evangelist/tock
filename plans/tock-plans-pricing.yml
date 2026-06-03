@@ -4,7 +4,7 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Tock
 providerId: tock
 created: '2026-05-08'
-modified: '2026-05-25'
+modified: '2026-06-03'
 reconciled: false
 tags:
 - Hospitality
@@ -14,11 +14,14 @@ tags:
 - Plans
 description: Tock offers tiered restaurant SaaS plans (Tock Plus, Tock Pro, etc.) plus per-ticket fees.
   Public pricing pages have advertised tiers from $199/month upward historically; confirm with sales.
-notes: Partner API access is contractual. Tock has been owned by American Express since June 2024
-  (acquired from Squarespace, which had bought Tock for ~$400M in 2021).
+notes: Tock has been owned by American Express since June 2024 (acquired from Squarespace, which had
+  bought Tock for ~$400M in 2021). API and webhook access (Data Exports, Guest Profile Ingest, and the
+  Reservation Webhook) is an entitlement of the Premium and Premium Unlimited plans; partners request an
+  API key from integrate@tockhq.com. Published API documentation lives at api.exploretock.com.
 sources:
 - https://www.exploretock.com/
 - https://www.exploretock.com/partners
+- https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
 plans:
 - id: tock-restaurant-tiers
   name: Tock Restaurant Tiers

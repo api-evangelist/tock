@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-rating-type-structure.json",
+  "name": "tockRatingType",
+  "description": "tockRatingType schema from Tock Reservation Model",
+  "type": "string",
+  "enum": [
+    "THREE_POINT_EMOTICON",
+    "FIVE_POINT_STAR"
+  ]
+}

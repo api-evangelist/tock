@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-loyalty-program-structure.json",
+  "name": "tockLoyaltyProgram",
+  "description": "tockLoyaltyProgram schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "providerType": {
+      "$ref": "reservation-loyalty-program-provider-type-schema.json",
+      "description": "The loyalty program provider used when securing the reservation."
+    },
+    "accountId": {
+      "type": "string",
+      "description": "If known, the account identifier for the owner patron within the loyalty program."
+    }
+  }
+}

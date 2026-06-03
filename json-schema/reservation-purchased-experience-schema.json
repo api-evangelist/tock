@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-purchased-experience-schema.json",
+  "title": "tockPurchasedExperience",
+  "description": "tockPurchasedExperience schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A unique identifier for the experience. Used internally by Tock."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name given to the experience which is displayed prominently when booking or within the Tock Dashboard."
+    },
+    "amountCents": {
+      "type": "string",
+      "format": "uint64",
+      "description": "The amount added to the total price for the experience and does not contain any values associated with add-on(s) or menu item(s)."
+    },
+    "posSku": {
+      "type": "string",
+      "description": "If assigned by the business from the Tock Dashboard, this field will be the SKU denoting the experience."
+    },
+    "variety": {
+      "$ref": "reservation-experience-variety-schema.json",
+      "description": "The type of experience being offered by the business."
+    }
+  }
+}

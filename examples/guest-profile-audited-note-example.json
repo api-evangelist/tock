@@ -1,0 +1,19 @@
+{
+  "note": "Celebrating an anniversary; window table preferred.",
+  "lastUpdatedBy": {
+    "id": "422235",
+    "email": "guest@example.com",
+    "firstName": "Jordan",
+    "lastName": "Rivera",
+    "phone": "3125550142",
+    "phoneCountryCode": "US",
+    "zipCode": "60607",
+    "imageUrl": "https://www.exploretock.com/example",
+    "isoCountryCode": "US",
+    "loyaltyProgramCardNumber": "example",
+    "loyaltyProgramAccountId": "839257"
+  },
+  "lastUpdatedAtTimestampMs": "example",
+  "previousVersionId": "365874",
+  "noteType": {}
+}

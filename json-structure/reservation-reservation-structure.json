@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-reservation-structure.json",
+  "name": "tockReservation",
+  "description": "tockReservation schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A unique identifier for the reservation. This identifier will not change no matter what edits have been made to the reservation. Transferred reservations will get new unique identifiers and are considered new reservations."
+    },
+    "business": {
+      "$ref": "reservation-business-schema.json",
+      "description": "Details about the business this reservation is for; useful for business groups that have multiple businesses supported by Tock."
+    },
+    "dateTime": {
+      "type": "string",
+      "description": "The start time of the reservation in the business time zone of the form HH:MM using the 24 hour clock and excluding seconds (e.g. 4:15pm would have a dateTime of \"16:15\")."
+    },
+    "partySize": {
+      "type": "int32",
+      "description": "The size of the party on the reservation."
+    },
+    "experience": {
+      "$ref": "reservation-purchased-experience-schema.json",
+      "description": "The experience assigned to the reservation in Tock. This is present even if no money is attached to the reservation and will not be present for walk-ins."
+    },
+    "option": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-purchased-option-schema.json"
+      },
+      "description": "Any add-on(s) or menu item(s) that has been booked along with this reservation. This is present even if no money is attached to this option and will not be present for walk-ins."
+    },
+    "fee": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-purchased-fee-schema.json"
+      },
+      "description": "Any fee(s) charged automatically to the party as part of the reservation. This does not include any custom fees applied to the reservation from the Tock Dashboard."
+    },
+    "customCharge": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-purchased-custom-charge-schema.json"
+      },
+      "description": "Any custom charges charged to the party as part of the reservation through the Tock Dashboard."
+    },
+    "keyValue": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-key-value-schema.json"
+      },
+      "description": "Any metadata associated with this reservation collected during the checkout process. Examples of potential metadata are UTM tracking parameters indicating how the guest originally came to make the reservation."
+    },
+    "compAmountCents": {
+      "type": "int32",
+      "description": "The total amount of all complimentary discounts applied through the Tock Dashboard to a paid reservation."
+    },
+    "subtotalCents": {
+      "type": "int32",
+      "description": "The subtotal given on the receipt for the reservation."
+    },
+    "taxRate": {
+      "type": "float",
+      "description": "If tax has been applied to the subtotal and not for individual purchased items, this is the tax rate applied to the subtotal. If using multiple tax rates for individual items, this field will not be present."
+    },
+    "taxCents": {
+      "type": "int32",
+      "description": "The total amount of tax collected for the reservation."
+    },
+    "serviceChargeRate": {
+      "type": "float",
+      "description": "If a service charge has been applied to the reservation, this field is the rate applied to the subtotal."
+    },
+    "serviceChargeCents": {
+      "type": "int32",
+      "description": "If a service charge has been applied to the reservation, this field is the amount of service charge added to the total price."
+    },
+    "selectedGratuityRate": {
+      "type": "float",
+      "description": "If gratuity has been added to the reservation by the party through choosing a fixed percentage, this field is the gratuity rate selected and applied to the subtotal. If a custom gratuity was chosen manually, this field will be zero."
+    },
+    "gratuityCents": {
+      "type": "int32",
+      "description": "The gratuity applied by the party to the reservation and added to the total price."
+    },
+    "eventFeeRate": {
+      "type": "float",
+      "description": "For reservations to events where a fee is applied, the event fee rate applied to the subtotal."
+    },
+    "eventFeeCents": {
+      "type": "int32",
+      "description": "For reservations to events where a fee is applied, the total amount of that fee added to the total price."
+    },
+    "customFeeRate": {
+      "type": "float",
+      "description": "If applied to the reservation from the Tock Dashboard, this field contains the custom fee rate applied to the subtotal and added to the total price."
+    },
+    "customFeeCents": {
+      "type": "int32",
+      "description": "If applied to the reservation from the Tock Dashboard, this field contains the custom fee amount applied to the subtotal and added to the total price."
+    },
+    "customFeeName": {
+      "type": "string",
+      "description": "If applied to the reservation from the Tock Dashboard, this field contains the name of the custom fee applied to the total price."
+    },
+    "totalPriceCents": {
+      "type": "int32",
+      "description": "The total price of the reservation including all fees, charges, taxes."
+    },
+    "discount": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-discount-schema.json"
+      },
+      "description": "Any discounts applied to the total price of the reservation, either automatically during checkout or through application in the Tock Dashboard. This does not include complimentary discounts applied to the reservation (see compAmountCents for that value)."
+    },
+    "netAmountPaidCents": {
+      "type": "int32",
+      "description": "The amount that has been charged to the party for this reservation. Does not need to be the same as the total price of the reservation."
+    },
+    "amountDueCents": {
+      "type": "int32",
+      "description": "The amount that is still due to cover the total price of the reservation. This will be the totalPriceCents field less the netAmountPaidCents field."
+    },
+    "createdTimestamp": {
+      "type": "string",
+      "format": "uint64",
+      "description": "The timestamp for when this reservation was first created, in milliseconds since the Unix Epoch."
+    },
+    "lastUpdatedTimestamp": {
+      "type": "string",
+      "format": "uint64",
+      "description": "The timestamp for the last modification to this reservation, in milliseconds since the Unix Epoch."
+    },
+    "serviceDateTimestamp": {
+      "type": "string",
+      "format": "uint64",
+      "description": "The timestamp for the start time of the reservation, in milliseconds since the Unix Epoch. This is a convenience field as it does not require the business timezone."
+    },
+    "transferredOut": {
+      "type": "boolean",
+      "description": "Whether the reservation has been transferred to a different party."
+    },
+    "transferredOutAmountCents": {
+      "type": "int64",
+      "description": "If this reservation has been transferred to a different party, the amount the original owner charged the transferee for the reservation."
+    },
+    "isCancelled": {
+      "type": "boolean",
+      "description": "Whether this reservation has been marked as cancelled, either by the user or through the Tock Dashboard. No modifications can happen to a reservation after it is cancelled."
+    },
+    "ownerPatron": {
+      "$ref": "reservation-patron-schema.json",
+      "description": "The \"owner\" patron is the one who initiated payment for the reservation. It is most commonly the same as the \"diner\" patron unless it booked through a concierge or altered directly from the Tock Dashboard."
+    },
+    "dinerPatron": {
+      "$ref": "reservation-patron-schema.json",
+      "description": "The patron whose name will appear on the reservation in the Tock Dashboard. Is is most commonly the same as the ownerPatron unless booked through a concierge or altered directly from the Tock Dashboard."
+    },
+    "versionId": {
+      "type": "string",
+      "format": "uint64",
+      "description": "A version identifier used by Tock to indicate how many edits have been made to the original reservation. This is for Tock internal use only and a better indication of the number of edits is in the sequenceId field."
+    },
+    "loyaltyProgramCardNumberUsed": {
+      "type": "string",
+      "description": "If the reservation was made by a patron that has linked their loyalty program account, this field contains the unique number used to identify the loyalty card used."
+    },
+    "visitFeedback": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-visit-feedback-schema.json"
+      },
+      "description": "The results of answering any questions about the reservation after the party has visited."
+    },
+    "visitTag": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-visit-tag-schema.json"
+      },
+      "description": "Any tags applied to the reservation in the Tock Dashboard specific to this reservation and not to the guest as a whole."
+    },
+    "payment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-tock-payment-schema.json"
+      },
+      "description": "All payments made to secure this reservation. Payments take many forms (credit cards, gift cards, reward points, etc.) and the type of payment used is indicated inside the nested objects."
+    },
+    "refund": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-refund-schema.json"
+      },
+      "description": "Any refunds applied to any payments made on this reservation. Refunds are applied in the Tock Dashboard through edits to the reservation or applying any form of discount. These refunds are applied to the original form(s) of payment to secure the reservation."
+    },
+    "partyState": {
+      "$ref": "reservation-party-state-schema.json",
+      "description": "The current state of the party within the Tock Dashboard."
+    },
+    "sequenceId": {
+      "type": "int64",
+      "description": "An identifier that starts at zero and increases by one for each edit to the reservation. Use this field to denote that the reservation has changed since the previous sequenceId."
+    },
+    "confirmationCode": {
+      "type": "string",
+      "description": "The reservation confirmation code given to the party. Currently always eight characters. This field is not set for walk-ins."
+    },
+    "serverName": {
+      "type": "string",
+      "description": "The employees names used to serve the party for the reservation. If multiple employees were assigned, they will be delimited with the word \"and\" (e.g. Luci and Dezi)."
+    },
+    "walkinId": {
+      "type": "string",
+      "format": "int64",
+      "description": "Used only for encoding walk-in data, maps to the visit id"
+    },
+    "note": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-note-schema.json"
+      },
+      "description": "A note that has been attached to this reservation or guest through actions in the Tock Dashboard. Imported reservations may also have notes."
+    },
+    "question": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-question-schema.json"
+      },
+      "description": "Any questions answered by the party about this reservation prior to the service date."
+    },
+    "table": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "reservation-table-schema.json"
+      },
+      "description": "Table(s) assigned to the reservation sorted alphabetically by ascending order."
+    },
+    "seatingOption": {
+      "$ref": "reservation-seating-option-schema.json",
+      "description": "An area of the floor plan (also known as seating area)"
+    }
+  }
+}

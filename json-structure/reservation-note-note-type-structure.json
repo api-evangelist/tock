@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-structure/reservation-note-note-type-structure.json",
+  "name": "tockNoteNoteType",
+  "description": "tockNoteNoteType schema from Tock Reservation Model",
+  "type": "string",
+  "enum": [
+    "BOOKING_GENERAL_NOTE",
+    "BOOKING_DIETARY_NOTE",
+    "GUEST_PROVIDED_NOTE"
+  ]
+}

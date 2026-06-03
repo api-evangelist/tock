@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/reservation-get-reservation-response-schema.json",
+  "title": "tockGetReservationResponse",
+  "description": "tockGetReservationResponse schema from Tock Reservation Model",
+  "type": "object",
+  "properties": {
+    "reservation": {
+      "$ref": "reservation-reservation-schema.json"
+    }
+  }
+}

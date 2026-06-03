@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/json-schema/guest-profile-day-schema.json",
+  "title": "tockDay",
+  "description": "tockDay schema from Tock Guest Model",
+  "type": "object",
+  "properties": {
+    "type": {
+      "$ref": "guest-profile-day-type-schema.json",
+      "description": "The type of special day as specified by the guest."
+    },
+    "day": {
+      "type": "integer",
+      "format": "int64",
+      "description": "The numerical day within the month."
+    },
+    "month": {
+      "type": "integer",
+      "format": "int64",
+      "description": "The numerical month within the year."
+    },
+    "year": {
+      "type": "integer",
+      "format": "int64",
+      "description": "If specified, the year of the day."
+    }
+  }
+}
