@@ -1,0 +1,20 @@
+{
+  "item": [],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.exploretock.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a000b627-6e7c-4df8-be25-d841b6dd90bb",
+    "name": "Tock Reservation Model",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Data model for Tock reservations as published in the Tock API documentation (https://api.exploretock.com/docs/latest/reservation.html). Reservation records are delivered to approved partners through the twice-daily Data Exports API and the real-time Reservation Webhook; this specification documents the canonical reservation object and all of its nested types. Access to the underlying API and webhook requires a Tock API key (request from integrate@tockhq.com) and a Premium or Premium Unlimited plan.\n\nContact Support:\n Name: Tock Engineering\n Email: eng@tockhq.com",
+      "type": "text/plain"
+    }
+  }
+}

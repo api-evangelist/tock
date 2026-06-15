@@ -1,0 +1,20 @@
+{
+  "item": [],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.exploretock.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c43746ff-9390-4e12-b441-7db79fd4157d",
+    "name": "Tock Guest Model",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Data model for Tock guest profiles as published in the Tock API documentation (https://api.exploretock.com/docs/latest/guest_profile.html). Guest profiles are read via the Data Exports API and created/updated via the Guest Profile Ingest API (basic guest information only). This specification documents the canonical guest profile object and all nested types. Access requires a Tock API key (request from integrate@tockhq.com) and a Premium or Premium Unlimited plan.\n\nContact Support:\n Name: Tock Engineering\n Email: eng@tockhq.com",
+      "type": "text/plain"
+    }
+  }
+}
