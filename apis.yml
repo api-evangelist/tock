@@ -76,7 +76,7 @@ apis:
         url: json-structure/reservation-reservation-structure.json
       - type: JSONLD
         url: json-ld/tock-reservation-context.jsonld
-      - type: Example
+      - type: Examples
         url: examples/reservation-reservation-example.json
       - type: Authentication
         url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
@@ -114,7 +114,7 @@ apis:
         url: json-structure/guest-profile-guest-profile-structure.json
       - type: JSONLD
         url: json-ld/tock-guest-profile-context.jsonld
-      - type: Example
+      - type: Examples
         url: examples/guest-profile-guest-profile-example.json
       - type: Authentication
         url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
@@ -129,7 +129,7 @@ common:
     url: https://github.com/tocktix
   - type: Partners
     url: https://www.exploretock.com/partners
-  - type: SignUp
+  - type: Signup
     url: https://www.exploretock.com/business
   - type: Login
     url: https://www.exploretock.com/login
