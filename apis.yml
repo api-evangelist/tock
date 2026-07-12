@@ -121,6 +121,10 @@ apis:
       - type: Partners
         url: https://www.exploretock.com/partners
 common:
+  - type: DomainSecurity
+    url: security/tock-domain-security.yml
+  - type: Authentication
+    url: authentication/tock-authentication.yml
   - type: Website
     url: https://www.exploretock.com/
   - type: Documentation
