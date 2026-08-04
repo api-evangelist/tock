@@ -1,0 +1,16 @@
+{
+  "provider": "tock",
+  "sources": [
+    "tock-guest-profile-openapi.yml",
+    "tock-reservation-openapi.yml"
+  ],
+  "outputs": [],
+  "archived": [
+    "archived tock-guest-profile-openapi.yml",
+    "archived tock-reservation-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
