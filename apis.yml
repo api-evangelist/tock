@@ -82,7 +82,7 @@ apis:
       - type: APIReference
         url: https://api.exploretock.com/docs/latest/reservation.html
       - type: OpenAPI
-        url: openapi/tock-reservation-openapi.yml
+        url: openapi/_original/tock-reservation-openapi.yml
       - type: JSONSchema
         url: json-schema/reservation-reservation-schema.json
       - type: JSONStructure
@@ -120,7 +120,7 @@ apis:
       - type: APIReference
         url: https://api.exploretock.com/docs/latest/guest_profile.html
       - type: OpenAPI
-        url: openapi/tock-guest-profile-openapi.yml
+        url: openapi/_original/tock-guest-profile-openapi.yml
       - type: JSONSchema
         url: json-schema/guest-profile-guest-profile-schema.json
       - type: JSONStructure
