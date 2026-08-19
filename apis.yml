@@ -53,7 +53,7 @@ tags:
   - American Express
 created: '2026-05-08'
 modified: '2026-06-03'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 apis:
   - aid: tock:reservation-api
     name: Tock Reservation API
