@@ -43,6 +43,17 @@ url: https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/apis.
 tags:
   - Hospitality
   - Reservations
+  - Restaurant
+  - Wineries
+  - Ticketed Events
+  - Takeout
+  - Delivery
+  - Experience
+  - Dining
+  - American Express
+tags_raw:
+  - Hospitality
+  - Reservations
   - Restaurants
   - Wineries
   - Ticketed Events
@@ -69,6 +80,14 @@ apis:
       Tock API key and a Premium or Premium Unlimited plan.
     humanURL: https://api.exploretock.com/docs/latest/reservation.html
     tags:
+      - REST
+      - Reservations
+      - Ticketed Events
+      - Takeout
+      - Delivery
+      - Webhook
+      - Data Export
+    tags_raw:
       - REST
       - Reservations
       - Ticketed Events
