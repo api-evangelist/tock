@@ -1,27 +1,18 @@
 aid: tock
 name: Tock
-description: >-
-  Tock is a Chicago-founded reservation, ticketed events, takeout, and
-  delivery management platform for restaurants, wineries, and hospitality
-  venues. Founded in 2014 by Nick Kokonas, Brian Fitzpatrick, and Grant
-  Achatz to support prepaid and ticketed dining (originated at Alinea
-  Group), Tock pioneered the prepaid reservation model and expanded into
-  takeout, wine delivery, and experience ticketing through the pandemic.
-  Squarespace acquired Tock for approximately $400 million in 2021,
-  then sold it to American Express in June 2024 as part of Amex's
-  strategy to deepen its dining and premium-experience footprint. Tock
-  is operated as an Amex-owned property today and continues to serve
-  restaurants globally through exploretock.com. Tock publishes API
-  documentation and data-model specifications at api.exploretock.com
-  covering its Reservation and Guest data models. Programmatic access is
-  delivered through a Data Exports API (twice-daily reservation and guest
-  exports), a Guest Profile Ingest API (create/update of basic guest
-  information), and a real-time Reservation Webhook. API and webhook access
-  is an entitlement of the Premium and Premium Unlimited plans; partners
-  request an API key by emailing integrate@tockhq.com from a Tock Dashboard
-  Account Owner. There is no self-serve developer signup; deeper POS, CRM,
-  marketing, loyalty, and ticketing integrations are coordinated through
-  Tock's partnerships team.
+description: Tock is a Chicago-founded reservation, ticketed events, takeout, and delivery management platform for
+  restaurants, wineries, and hospitality venues. Founded in 2014 by Nick Kokonas, Brian Fitzpatrick, and Grant Achatz
+  to support prepaid and ticketed dining (originated at Alinea Group), Tock pioneered the prepaid reservation model
+  and expanded into takeout, wine delivery, and experience ticketing through the pandemic. Squarespace acquired
+  Tock for approximately $400 million in 2021, then sold it to American Express in June 2024 as part of Amex's strategy
+  to deepen its dining and premium-experience footprint. Tock is operated as an Amex-owned property today and continues
+  to serve restaurants globally through exploretock.com. Tock publishes API documentation and data-model specifications
+  at api.exploretock.com covering its Reservation and Guest data models. Programmatic access is delivered through
+  a Data Exports API (twice-daily reservation and guest exports), a Guest Profile Ingest API (create/update of basic
+  guest information), and a real-time Reservation Webhook. API and webhook access is an entitlement of the Premium
+  and Premium Unlimited plans; partners request an API key by emailing integrate@tockhq.com from a Tock Dashboard
+  Account Owner. There is no self-serve developer signup; deeper POS, CRM, marketing, loyalty, and ticketing integrations
+  are coordinated through Tock's partnerships team.
 type: Index
 deliveryModel:
   model: saas
@@ -36,270 +27,318 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: unknown
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: high
+  label: Unknown
+  confidence: low
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
-position: Provider
+position: Producing
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/tock.png
 url: https://raw.githubusercontent.com/api-evangelist/tock/refs/heads/main/apis.yml
 tags:
-  - Hospitality
-  - Reservations
-  - Restaurant
-  - Wineries
-  - Ticketed Events
-  - Takeout
-  - Delivery
-  - Experience
-  - Dining
-  - American Express
+- Hospitality
+- Reservations
+- Restaurant
+- Wineries
+- Ticketed Events
+- Takeout
+- Delivery
+- Experience
+- Dining
+- American Express
 tags_raw:
-  - Hospitality
-  - Reservations
-  - Restaurants
-  - Wineries
-  - Ticketed Events
-  - Takeout
-  - Delivery
-  - Experiences
-  - Dining
-  - American Express
+- Hospitality
+- Reservations
+- Restaurants
+- Wineries
+- Ticketed Events
+- Takeout
+- Delivery
+- Experiences
+- Dining
+- American Express
 created: '2026-05-08'
 modified: '2026-06-03'
 specificationVersion: '0.23'
 apis:
-  - aid: tock:reservation-api
-    name: Tock Reservation API
-    description: >-
-      Reservation data model and delivery surface published at
-      api.exploretock.com. Reservation records (bookings, ticketed
-      experiences, takeout/delivery orders, parties, pricing, payments,
-      refunds, notes, and post-visit feedback) are delivered to approved
-      partners through a twice-daily Data Exports API and a real-time
-      Reservation Webhook. Tock publishes a Swagger 2.0 data-model spec
-      for the canonical reservation object; reservation data is read-only
-      via API (it cannot be modified programmatically). Access requires a
-      Tock API key and a Premium or Premium Unlimited plan.
-    humanURL: https://api.exploretock.com/docs/latest/reservation.html
-    tags:
-      - REST
-      - Reservations
-      - Ticketed Events
-      - Takeout
-      - Delivery
-      - Webhook
-      - Data Export
-    tags_raw:
-      - REST
-      - Reservations
-      - Ticketed Events
-      - Takeout
-      - Delivery
-      - Webhooks
-      - Data Export
-    properties:
-      - type: Documentation
-        url: https://api.exploretock.com/docs/latest/reservation.html
-      - type: APIReference
-        url: https://api.exploretock.com/docs/latest/reservation.html
-      - type: OpenAPI
-        url: openapi/_original/tock-reservation-openapi.yml
-      - type: JSONSchema
-        url: json-schema/reservation-reservation-schema.json
-      - type: JSONStructure
-        url: json-structure/reservation-reservation-structure.json
-      - type: JSONLD
-        url: json-ld/tock-reservation-context.jsonld
-      - type: Examples
-        url: examples/reservation-reservation-example.json
-      - type: Authentication
-        url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
-      - type: Partners
-        url: https://www.exploretock.com/partners
-  - aid: tock:guest-api
-    name: Tock Guest API
-    description: >-
-      Guest (CRM) data model and ingest surface published at
-      api.exploretock.com. Guest profiles capture contact details, dietary
-      restrictions and preferences, tags, per-business and group-level
-      notes and spend, and loyalty program references. Profiles are read
-      via the Data Exports API and created or updated via the Guest Profile
-      Ingest API, which supports basic guest information only. Tock
-      publishes a Swagger 2.0 data-model spec for the canonical guest
-      profile object. Access requires a Tock API key and a Premium or
-      Premium Unlimited plan.
-    humanURL: https://api.exploretock.com/docs/latest/guest_profile.html
-    tags:
-      - REST
-      - Guests
-      - CRM
-      - Data Export
-      - Ingest
-    properties:
-      - type: Documentation
-        url: https://api.exploretock.com/docs/latest/guest_profile.html
-      - type: APIReference
-        url: https://api.exploretock.com/docs/latest/guest_profile.html
-      - type: OpenAPI
-        url: openapi/_original/tock-guest-profile-openapi.yml
-      - type: JSONSchema
-        url: json-schema/guest-profile-guest-profile-schema.json
-      - type: JSONStructure
-        url: json-structure/guest-profile-guest-profile-structure.json
-      - type: JSONLD
-        url: json-ld/tock-guest-profile-context.jsonld
-      - type: Examples
-        url: examples/guest-profile-guest-profile-example.json
-      - type: Authentication
-        url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
-      - type: Partners
-        url: https://www.exploretock.com/partners
-common:
-  - type: DomainSecurity
-    url: security/tock-domain-security.yml
-  - type: Authentication
-    url: authentication/tock-authentication.yml
-  - type: Website
-    url: https://www.exploretock.com/
+- aid: tock:reservation-api
+  name: Tock Reservation API
+  description: Reservation data model and delivery surface published at api.exploretock.com. Reservation records
+    (bookings, ticketed experiences, takeout/delivery orders, parties, pricing, payments, refunds, notes, and post-visit
+    feedback) are delivered to approved partners through a twice-daily Data Exports API and a real-time Reservation
+    Webhook. Tock publishes a Swagger 2.0 data-model spec for the canonical reservation object; reservation data
+    is read-only via API (it cannot be modified programmatically). Access requires a Tock API key and a Premium
+    or Premium Unlimited plan.
+  humanURL: https://api.exploretock.com/docs/latest/reservation.html
+  tags:
+  - REST
+  - Reservations
+  - Ticketed Events
+  - Takeout
+  - Delivery
+  - Webhook
+  - Data Export
+  tags_raw:
+  - REST
+  - Reservations
+  - Ticketed Events
+  - Takeout
+  - Delivery
+  - Webhooks
+  - Data Export
+  properties:
   - type: Documentation
     url: https://api.exploretock.com/docs/latest/reservation.html
-  - type: GitHubOrganization
-    url: https://github.com/tocktix
+  - type: APIReference
+    url: https://api.exploretock.com/docs/latest/reservation.html
+  - type: OpenAPI
+    url: openapi/_original/tock-reservation-openapi.yml
+  - type: JSONSchema
+    url: json-schema/reservation-reservation-schema.json
+  - type: JSONStructure
+    url: json-structure/reservation-reservation-structure.json
+  - type: JSONLD
+    url: json-ld/tock-reservation-context.jsonld
+  - type: Examples
+    url: examples/reservation-reservation-example.json
+  - type: Authentication
+    url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
   - type: Partners
     url: https://www.exploretock.com/partners
-  - type: Signup
-    url: https://www.exploretock.com/business
-  - type: Login
-    url: https://www.exploretock.com/login
-  - type: Customers
-    url: https://www.exploretock.com/restaurants
-  - type: Support
-    url: https://help.exploretock.com/
-  - type: Blog
-    url: https://www.exploretock.com/journal
-  - type: PrivacyPolicy
-    url: https://www.exploretock.com/privacy
-  - type: TermsOfService
-    url: https://www.exploretock.com/terms
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/tock
-  - type: X
-    url: https://twitter.com/exploretock
-  - type: Features
-    data:
-      - name: Reservations
-        description: >-
-          Online booking, waitlist, and prepaid/deposit reservations
-          for restaurants and hospitality venues, originally modeled
-          on Alinea Group's prepaid dining workflow.
-      - name: Ticketed Experiences
-        description: >-
-          Sell tickets for chef's tables, tastings, wine dinners, and
-          one-off events with prepayment, refund rules, and tiered
-          pricing per seating or experience.
-      - name: Takeout and Delivery
-        description: >-
-          Direct online ordering for pickup and delivery, including
-          wine and retail product sales, with venue-controlled menus
-          and fulfillment windows.
-      - name: Marketplace Discovery
-        description: >-
-          Diner-facing exploretock.com marketplace that distributes
-          inventory and ticketed experiences across a global network
-          of restaurants and wineries.
-      - name: Guest CRM
-        description: >-
-          Unified guest profiles capturing reservation history, spend,
-          preferences, allergies, and notes for staff personalization
-          and remarketing.
-      - name: Operations and Floor Management
-        description: >-
-          Table management, host and server tooling, prep sheets, and
-          shift-level reporting for in-venue operations.
-  - type: UseCases
-    data:
-      - name: Fine Dining Reservations
-        description: >-
-          Prepaid and deposit-backed reservations for tasting menus
-          and high-demand seatings, reducing no-shows and stabilizing
-          per-cover revenue.
-      - name: Wine Country and Tasting Rooms
-        description: >-
-          Ticketed tasting flights, tours, and member experiences for
-          wineries and vineyards with capacity and SKU constraints.
-      - name: Chef Events and Pop-Ups
-        description: >-
-          Ticketed dinners, collaborations, and limited-run events
-          where prepayment and assigned seating are essential.
-      - name: Takeout and Wine Delivery
-        description: >-
-          Direct-to-consumer pickup, delivery, and retail wine sales
-          launched and expanded during and after the pandemic.
-      - name: American Express Dining Benefits
-        description: >-
-          Surfacing curated dining and experience inventory to Amex
-          cardmembers as part of Amex's premium-experience portfolio.
-  - type: Integrations
-    data:
-      - name: Point of Sale (POS)
-        description: >-
-          Bi-directional sync with restaurant POS systems for checks,
-          payments, and guest spend; delivered through the contractual
-          Partner API.
-      - name: CRM and Marketing
-        description: >-
-          Push guest profiles and reservation events into CRM,
-          loyalty, and email/SMS marketing systems via Partner API.
-      - name: Payments
-        description: >-
-          Integrated card capture and prepayment processing for
-          deposits, tickets, and order payments.
-      - name: American Express
-        description: >-
-          Owned by American Express since June 2024; integrated with
-          Amex dining benefits, cardmember experiences, and Resy
-          coordination at the parent level.
-      - name: Squarespace (historical)
-        description: >-
-          Tock was a Squarespace subsidiary from 2021 to mid-2024;
-          some legacy billing and account artifacts may still surface
-          via Squarespace channels for long-tenured customers.
-  - type: Solutions
-    data:
-      - name: Restaurants
-        description: >-
-          Reservations, ticketing, takeout, delivery, and guest CRM
-          for independent and group restaurants.
-      - name: Wineries
-        description: >-
-          Tastings, tours, club experiences, and on-site retail
-          tooling for wineries and vineyards.
-      - name: Hotels and Resorts
-        description: >-
-          Dining and experience reservations for on-property
-          restaurants, bars, and signature experiences inside hotels
-          and resorts.
-      - name: Bars and Lounges
-        description: >-
-          Reservations, ticketed experiences, and walk-in waitlist
-          management for high-demand bar and lounge concepts.
-  - type: Plans
-    url: plans/tock-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/tock-rate-limits.yml
-  - type: FinOps
-    url: finops/tock-finops.yml
-  - type: Vocabulary
-    url: vocabulary/tock-vocabulary.yaml
+- aid: tock:guest-api
+  name: Tock Guest API
+  description: Guest (CRM) data model and ingest surface published at api.exploretock.com. Guest profiles capture
+    contact details, dietary restrictions and preferences, tags, per-business and group-level notes and spend, and
+    loyalty program references. Profiles are read via the Data Exports API and created or updated via the Guest
+    Profile Ingest API, which supports basic guest information only. Tock publishes a Swagger 2.0 data-model spec
+    for the canonical guest profile object. Access requires a Tock API key and a Premium or Premium Unlimited plan.
+  humanURL: https://api.exploretock.com/docs/latest/guest_profile.html
+  tags:
+  - REST
+  - Guests
+  - CRM
+  - Data Export
+  - Ingest
+  properties:
+  - type: Documentation
+    url: https://api.exploretock.com/docs/latest/guest_profile.html
+  - type: APIReference
+    url: https://api.exploretock.com/docs/latest/guest_profile.html
+  - type: OpenAPI
+    url: openapi/_original/tock-guest-profile-openapi.yml
+  - type: JSONSchema
+    url: json-schema/guest-profile-guest-profile-schema.json
+  - type: JSONStructure
+    url: json-structure/guest-profile-guest-profile-structure.json
+  - type: JSONLD
+    url: json-ld/tock-guest-profile-context.jsonld
+  - type: Examples
+    url: examples/guest-profile-guest-profile-example.json
+  - type: Authentication
+    url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
+  - type: Partners
+    url: https://www.exploretock.com/partners
+- aid: tock:tock-data-exports-api
+  name: Tock Data Exports API
+  tags:
+  - Reservations
+  - Guest Data
+  - Data Export
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://api.exploretock.com/docs/latest/reservation.html
+  baseURL: https://api.exploretock.com
+  endpointsModeled: true
+  properties:
+  - url: https://api.exploretock.com/docs/latest/reservation.html
+    type: Documentation
+  - url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
+    type: Documentation
+  description: Twice-daily export of all historical reservation and guest data for the locations in a Tock business
+    group. Payloads follow the published Reservation data model (party, purchased experiences, options, fees, payments,
+    refunds, payouts, feedback, notes, tables). This is a partner-provisioned data feed - no public self-serve endpoint
+    path, method, or OpenAPI is documented, so the API is modeled from Tock's public data model reference and API
+    FAQ.
+- aid: tock:tock-guest-profile-ingest-api
+  name: Tock Guest Profile Ingest API
+  tags:
+  - Guests
+  - Profiles
+  - Tags
+  - Ingest
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://api.exploretock.com/docs/latest/guest_profile.html
+  baseURL: https://api.exploretock.com
+  endpointsModeled: true
+  properties:
+  - url: https://api.exploretock.com/docs/latest/guest_profile.html
+    type: Documentation
+  - url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
+    type: Documentation
+  description: Add and update basic guest information and guest-profile tags in Tock, following the published Guest
+    data model (patron identity, contact details, dietary restrictions, hospitality preferences, business and business-group
+    notes and tags). Tock only permits creation and updating of basic guest information via this ingest surface.
+    Endpoint paths and authentication are shared with approved partners only, so this entry is modeled from the
+    public guest data-model reference and API FAQ.
+- aid: tock:tock-reservation-webhook
+  name: Tock Real-time Reservation Webhook
+  tags:
+  - Reservations
+  - Webhook
+  - Real-Time
+  tags_raw:
+  - Reservations
+  - Webhooks
+  - Real-time
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://api.exploretock.com/docs/latest/reservation.html
+  baseURL: https://api.exploretock.com
+  endpointsModeled: true
+  properties:
+  - url: https://api.exploretock.com/docs/latest/reservation.html
+    type: Documentation
+  - url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
+    type: Documentation
+  description: Real-time webhook that delivers reservation updates for all locations within a Tock business group
+    to a partner-supplied endpoint URL. The partner provides the receiving endpoint and any required authorization
+    headers; Tock POSTs reservation events shaped by the published Reservation data model. This is a server-to-endpoint
+    HTTP callback, not a public API the consumer calls - modeled from Tock's API FAQ.
+- aid: tock:tock-guest-profile-webhook
+  name: Tock Real-time Guest Profile Webhook
+  tags:
+  - Guests
+  - Webhook
+  - Real-Time
+  tags_raw:
+  - Guests
+  - Webhooks
+  - Real-time
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://api.exploretock.com/docs/latest/guest_profile.html
+  baseURL: https://api.exploretock.com
+  endpointsModeled: true
+  properties:
+  - url: https://api.exploretock.com/docs/latest/guest_profile.html
+    type: Documentation
+  - url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
+    type: Documentation
+  description: Real-time webhook that delivers guest-profile updates for all locations within a Tock business group
+    to a partner-supplied endpoint URL. Tock POSTs guest-profile events shaped by the published Guest data model.
+    As with the reservation webhook, the partner supplies the receiving endpoint and authorization headers; modeled
+    from Tock's API FAQ.
+common:
+- type: DomainSecurity
+  url: security/tock-domain-security.yml
+- type: Authentication
+  url: authentication/tock-authentication.yml
+- type: Website
+  url: https://www.exploretock.com/
+- type: Documentation
+  url: https://api.exploretock.com/docs/latest/reservation.html
+- type: GitHubOrganization
+  url: https://github.com/tocktix
+- type: Partners
+  url: https://www.exploretock.com/partners
+- type: Signup
+  url: https://www.exploretock.com/business
+- type: Login
+  url: https://www.exploretock.com/login
+- type: Customers
+  url: https://www.exploretock.com/restaurants
+- type: Support
+  url: https://help.exploretock.com/
+- type: Blog
+  url: https://www.exploretock.com/journal
+- type: PrivacyPolicy
+  url: https://www.exploretock.com/privacy
+- type: TermsOfService
+  url: https://www.exploretock.com/terms
+- type: LinkedIn
+  url: https://www.linkedin.com/company/tock
+- type: X
+  url: https://twitter.com/exploretock
+- type: Features
+  data:
+  - name: Reservations
+    description: Online booking, waitlist, and prepaid/deposit reservations for restaurants and hospitality venues,
+      originally modeled on Alinea Group's prepaid dining workflow.
+  - name: Ticketed Experiences
+    description: Sell tickets for chef's tables, tastings, wine dinners, and one-off events with prepayment, refund
+      rules, and tiered pricing per seating or experience.
+  - name: Takeout and Delivery
+    description: Direct online ordering for pickup and delivery, including wine and retail product sales, with venue-controlled
+      menus and fulfillment windows.
+  - name: Marketplace Discovery
+    description: Diner-facing exploretock.com marketplace that distributes inventory and ticketed experiences across
+      a global network of restaurants and wineries.
+  - name: Guest CRM
+    description: Unified guest profiles capturing reservation history, spend, preferences, allergies, and notes
+      for staff personalization and remarketing.
+  - name: Operations and Floor Management
+    description: Table management, host and server tooling, prep sheets, and shift-level reporting for in-venue
+      operations.
+- type: UseCases
+  data:
+  - name: Fine Dining Reservations
+    description: Prepaid and deposit-backed reservations for tasting menus and high-demand seatings, reducing no-shows
+      and stabilizing per-cover revenue.
+  - name: Wine Country and Tasting Rooms
+    description: Ticketed tasting flights, tours, and member experiences for wineries and vineyards with capacity
+      and SKU constraints.
+  - name: Chef Events and Pop-Ups
+    description: Ticketed dinners, collaborations, and limited-run events where prepayment and assigned seating
+      are essential.
+  - name: Takeout and Wine Delivery
+    description: Direct-to-consumer pickup, delivery, and retail wine sales launched and expanded during and after
+      the pandemic.
+  - name: American Express Dining Benefits
+    description: Surfacing curated dining and experience inventory to Amex cardmembers as part of Amex's premium-experience
+      portfolio.
+- type: Integrations
+  data:
+  - name: Point of Sale (POS)
+    description: Bi-directional sync with restaurant POS systems for checks, payments, and guest spend; delivered
+      through the contractual Partner API.
+  - name: CRM and Marketing
+    description: Push guest profiles and reservation events into CRM, loyalty, and email/SMS marketing systems via
+      Partner API.
+  - name: Payments
+    description: Integrated card capture and prepayment processing for deposits, tickets, and order payments.
+  - name: American Express
+    description: Owned by American Express since June 2024; integrated with Amex dining benefits, cardmember experiences,
+      and Resy coordination at the parent level.
+  - name: Squarespace (historical)
+    description: Tock was a Squarespace subsidiary from 2021 to mid-2024; some legacy billing and account artifacts
+      may still surface via Squarespace channels for long-tenured customers.
+- type: Solutions
+  data:
+  - name: Restaurants
+    description: Reservations, ticketing, takeout, delivery, and guest CRM for independent and group restaurants.
+  - name: Wineries
+    description: Tastings, tours, club experiences, and on-site retail tooling for wineries and vineyards.
+  - name: Hotels and Resorts
+    description: Dining and experience reservations for on-property restaurants, bars, and signature experiences
+      inside hotels and resorts.
+  - name: Bars and Lounges
+    description: Reservations, ticketed experiences, and walk-in waitlist management for high-demand bar and lounge
+      concepts.
+- type: Plans
+  url: plans/tock-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/tock-rate-limits.yml
+- type: FinOps
+  url: finops/tock-finops.yml
+- type: Vocabulary
+  url: vocabulary/tock-vocabulary.yaml
+- type: Documentation
+  url: https://tock.zendesk.com/hc/en-us/articles/25447494175508-API-FAQ
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
