@@ -1,16 +1,19 @@
 {
   "provider": "tock",
   "sources": [
-    "tock-guest-profile-openapi.yml",
-    "tock-reservation-openapi.yml"
+    "_original/tock-guest-profile-openapi.yml",
+    "_original/tock-reservation-openapi.yml"
   ],
   "outputs": [],
-  "archived": [
-    "archived tock-guest-profile-openapi.yml",
-    "archived tock-reservation-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
-  "warnings": [],
-  "notes": [],
+  "warnings": [
+    "produced no outputs (2 source(s) have no operations) \u2014 sources left in place rather than archived"
+  ],
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "tock-guest-profile-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "tock-reservation-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0"
+  ],
   "skipped": []
 }
