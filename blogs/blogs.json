@@ -2,6 +2,10 @@
   "repo": "tock",
   "feeds": [
     {
+      "source": "https://www.exploretock.com/journal",
+      "error": "HTTPError"
+    },
+    {
       "source": "https://help.exploretock.com/",
       "feed_url": "https://help.exploretock.com/",
       "title": "",
@@ -9,6 +13,6 @@
       "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 0
 }
